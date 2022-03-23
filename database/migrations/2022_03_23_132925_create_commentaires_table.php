@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('publication_id');
-            $table->string('contenu',20);
+            $table->string('contenu',30);
             $table->timestamps();
         });
     }
