@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('date_naiss');
             $table->string('image',299)->nullable();
-            $table->string('ville',20)->default('agadir');
+            $table->string('ville',20);
             $table->unsignedBigInteger('id_art');
             $table->timestamps();
         });
