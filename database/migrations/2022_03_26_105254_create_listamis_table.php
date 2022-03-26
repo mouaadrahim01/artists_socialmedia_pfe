@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('arts', function (Blueprint $table) {
+        Schema::create('listamis', function (Blueprint $table) {
             $table->id();
-            $table->string('type',50);
+            $table->unsignedBigInteger('user_id');
+            $table->list('ami');
+            $table->integer('nbAmi')->count;
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arts');
+        Schema::dropIfExists('listamis');
     }
 };

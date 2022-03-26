@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->foreign('id_art')->references('id')->on('arts');
+        Schema::create('arts', function (Blueprint $table) {
+            $table->id();
+            $table->tstring('type',20);
         });
     }
 
@@ -25,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['id_art']);
-        });
+        Schema::dropIfExists('arts');
     }
 };

@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
+            $table->string('nom',50);
             $table->string('prenom',50);
             $table->string('email',50)->unique();
             $table->string('password');
-            $table->date('date_naiss');
+            $table->date('date_naissance');
             $table->string('image',299)->nullable();
             $table->string('ville',20);
-            $table->unsignedBigInteger('id_art');
+            $table->string('description',255)->nullable();
+            $table->unsignedBigInteger("art_id");
             $table->timestamps();
         });
     }
