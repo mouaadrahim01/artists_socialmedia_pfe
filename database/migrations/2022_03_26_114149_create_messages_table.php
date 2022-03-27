@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('type',20)->default('poste');
-            $table->string('file',300)->default('null');
-            $table->string('statu',1000)->default('null');
-            $table->boolean('is_image')->default(false);
-            $table->boolean('droit')->default(false);
+            $table->unsignedBigInteger('recepteur_id');
+            $table->unsignedBigInteger('conv_id');
+            $table->text('contenu');
+            $table->string('type_message',20);
+            $table->boolean('Vu')->default(false);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publications');
+        Schema::dropIfExists('messages');
     }
 };

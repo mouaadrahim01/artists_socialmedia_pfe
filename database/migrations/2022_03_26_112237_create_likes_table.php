@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('type',20)->default('poste');
-            $table->string('file',300)->default('null');
-            $table->string('statu',1000)->default('null');
-            $table->boolean('is_image')->default(false);
-            $table->boolean('droit')->default(false);
-            $table->timestamps();
+            $table->unsignedBigInteger('publication_id');
         });
     }
 
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publications');
+        Schema::dropIfExists('likes');
     }
 };
