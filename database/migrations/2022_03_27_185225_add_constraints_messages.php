@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('publication_id')->references('id')->on('publications');
+            $table->foreign('recepteur_id')->references('id')->on('users');
+            $table->foreign('conv_id')->references('id')->on('convercations');
         });
     }
 
@@ -26,9 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('likes', function (Blueprint $table) {
+        Schema::table('messages', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
-            $table->dropForeign(['publication_id']);
+            $table->dropForeign(['recepteur_id']);
+            $table->dropForeign(['conv_id']);
         });
     }
 };

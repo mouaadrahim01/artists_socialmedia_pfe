@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('commentaires', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('publication_id')->references('id')->on('publications');
         });
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('likes', function (Blueprint $table) {
+        Schema::table('commentaires', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['publication_id']);
         });
