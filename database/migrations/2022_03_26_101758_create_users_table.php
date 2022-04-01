@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('image',299)->nullable();
             $table->string('ville',20);
             $table->string('description',255)->nullable();
-            $table->unsignedBigInteger("art_id");
+            $table->unsignedBigInteger('art_id');
             $table->timestamps();
         });
     }

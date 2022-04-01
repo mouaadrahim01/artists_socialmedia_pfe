@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('arts', function (Blueprint $table) {
             $table->id();
-            $table->tstring('type',20);
+            $table->string('type',20);
         });
     }
 
