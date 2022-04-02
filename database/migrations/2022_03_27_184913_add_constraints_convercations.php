@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('convercations', function (Blueprint $table) {
+        Schema::table('convercations', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('recepteur_id')->references('id')->on('users');
         });

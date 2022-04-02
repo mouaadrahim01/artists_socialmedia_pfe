@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('listamis', function (Blueprint $table) {
+        Schema::table('listamis', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

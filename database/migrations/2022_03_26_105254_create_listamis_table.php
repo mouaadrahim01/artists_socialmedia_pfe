@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('listamis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->list('ami');
-            $table->integer('nbAmi')->count;
+            $table->string('ami');
+            $table->integer('nbAmi');
         });
     }
 
