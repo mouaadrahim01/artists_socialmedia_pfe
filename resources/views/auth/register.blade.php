@@ -54,6 +54,19 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="date" class="col-md-4 col-form-label text-md-end">{{ __('Date Naissence') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="date" name="date" id="date" class="form-control @error('date') is-invalid @enderror" style="width: 100%; display: inline;" name="date" value="{{ old('date') }}" required autocomplete="date">
+                                @error('date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
