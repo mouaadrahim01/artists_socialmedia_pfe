@@ -94,17 +94,17 @@
             </div>
             
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('S’inscrire') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-6 col-lg-6 control-label">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-6 col-lg-6 control-label">{{ __('Nom') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="name">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nom">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -118,7 +118,7 @@
                             <label for="prenom" class="col-md-6 col-lg-6 control-label">{{ __('Prenom') }}</label>
 
                             <div class="col-md-6">
-                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
+                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus placeholder="prenom">
 
                                 @error('prenom')
                                     <span class="invalid-feedback" role="alert">
@@ -132,7 +132,7 @@
                             <label for="email" class="col-md-6 col-lg-6 control-label">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="votre email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -159,10 +159,10 @@
 
                             <div class="col-md-6">
                                 <select class="form-select" aria-label="Default select example">
-                                    <option selected>hh</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>art 1</option>
+                                    <option value="1">art 2</option>
+                                    <option value="2">art 3</option>
+                                    <option value="3">art 4</option>
                                   </select>
                                 @error('art')
                                     <span class="invalid-feedback" role="alert">
@@ -173,10 +173,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-6 col-lg-6 control-label">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-6 col-lg-6 control-label">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Mot de passe">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -187,17 +187,17 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-6 col-lg-6 control-label">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-6 col-lg-6 control-label">{{ __('Confirm Mot de passe') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Mot de passe">
                             </div>
                         </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('S’inscrire') }}
                                 </button>
                             </div>
                         </div>

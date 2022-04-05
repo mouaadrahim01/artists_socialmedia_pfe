@@ -21,9 +21,12 @@ class User extends Authenticatable
         'name',
         'prenom',
         'email',
-        'prenom',
-        'art_id',
         'password',
+        'date_naissance',
+        'image',
+        'ville',
+        'description',
+        'art',
     ];
 
     /**
