@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <img src="C:\Users\mouaad\Documents\Desktop" class="img-thumbnail" alt="Responsive image">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="col-lg-6 d-none d-lg-block" style="position:relative;">

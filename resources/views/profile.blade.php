@@ -14,8 +14,9 @@
                         </div>
                     @endif
 
-                   username :  {{ Auth::user()->nmae}}  <br>
-                   email    :  {{ Auth::user()->email}}
+                   username :  {{ Auth::user()->name}}  <br>
+                   email    :  {{ Auth::user()->email}} <br>
+                   {{ Auth::user()->description}}
                 </div>
             </div>
         </div>
