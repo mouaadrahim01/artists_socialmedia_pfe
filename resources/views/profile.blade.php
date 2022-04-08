@@ -15,8 +15,7 @@
                     @endif
 
                    username :  {{ Auth::user()->name}}  <br>
-                   email    :  {{ Auth::user()->email}} <br>
-                   {{ Auth::user()->description}}
+                   email    :  {{ Auth::user()->email}} 
                 </div>
             </div>
         </div>
