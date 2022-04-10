@@ -17,11 +17,10 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/imane', function () {
-    return 'imane';
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('publications/create',[App\Http\Controllers\PublicationController::class, 'create'])->name('publications.create');
+Route::post('publications',[App\Http\Controllers\PublicationController::class, 'store'])->name('publications.store');

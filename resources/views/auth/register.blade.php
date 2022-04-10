@@ -143,8 +143,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="date" class="col-md-6 col-lg-6 control-label">{{ __('Date Naissence') }}</label>
-
+                            <label for="date" class="col-md-6 col-lg-6 control-label">{{ __('Date Naissance') }}</label>
                             <div class="col-md-6">
                                 <input type="date" name="date" id="date" class="form-control @error('date') is-invalid @enderror" style="width: 100%; display: inline;" name="date" value="{{ old('date') }}" required autocomplete="date">
                                 @error('date')
@@ -160,7 +159,7 @@
                             <div class="col-md-6">
                                 <select name=art class="form-select" aria-label="Default select example">
                                     @foreach (\App\Models\Art::all() as $art)
-                                        <option value={{$art->id}} {{old("art") == $art->id ? 'selected' : ''}}>{{$art->type}}</option>
+                                        <option value={{$art->type}} {{old("art") == $art->type ? 'selected' : ''}}>{{$art->type}}</option>
                                     @endforeach
                                   </select>
                                 @error('art')

@@ -26,7 +26,7 @@ class UserFactory extends Factory
             // 'pays' => $this->faker->pays(),
             'gender' => 'Homme',
             'description' => $this->faker->sentence($nbWords=10),
-            'art' => 'art1' 
+            'art' => 'jardinier' 
         ];
     }
 
