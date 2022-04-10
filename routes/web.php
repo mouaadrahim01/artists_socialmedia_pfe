@@ -17,11 +17,13 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/imane', function () {
-    return 'imane';
-});
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profileupdate');
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('update_avatar');
+Route::get('/editpage/{id}', [App\Http\Controllers\UpdateController::class,'editpage']);
+Route::put('/update/{id}', [App\Http\Controllers\UpdateController::class,'update'])->name('update');
