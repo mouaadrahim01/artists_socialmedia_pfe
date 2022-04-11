@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -28,6 +27,6 @@ Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])-
 Route::get('/editpage/{id}', [App\Http\Controllers\UpdateController::class,'editpage']);
 Route::put('/update/{id}', [App\Http\Controllers\UpdateController::class,'update'])->name('update');
 
-Route::get('profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
-Route::get('publications/create',[App\Http\Controllers\PublicationController::class, 'create'])->name('create');
-Route::get('/publications',[App\Http\Controllers\PublicationController::class, 'store'])->name('publications.store');
+// Route::get('profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('publications/create',[App\Http\Controllers\PublicationController::class, 'create'])->name('publications.create');
+Route::post('publications',[App\Http\Controllers\PublicationController::class, 'store'])->name('publications.store');
