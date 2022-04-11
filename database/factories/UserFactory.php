@@ -22,15 +22,13 @@ class UserFactory extends Factory
             'prenom' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'date_naissance' => $this->faker->date(),
+            'date' => $this->faker->date(),
             // 'pays' => $this->faker->pays(),
+            'gender' => 'Homme',
             'description' => $this->faker->sentence($nbWords=10),
-            'art' => 'art1' 
+            'art' => 'jardinier' 
         ];
     }
-    protected $fillable = [
-        'name', 'email', 'password','image',
-    ];
 
     /**
      * Indicate that the model's email address should be unverified.

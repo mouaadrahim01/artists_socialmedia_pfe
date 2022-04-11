@@ -118,7 +118,7 @@
                             <label for="prenom" class="col-md-6 col-lg-6 control-label">{{ __('Prenom') }}</label>
 
                             <div class="col-md-6">
-                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus placeholder="prenom">
+                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus placeholder="Prenom">
 
                                 @error('prenom')
                                     <span class="invalid-feedback" role="alert">
@@ -143,8 +143,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="date" class="col-md-6 col-lg-6 control-label">{{ __('Date Naissence') }}</label>
-
+                            <label for="date" class="col-md-6 col-lg-6 control-label">{{ __('Date Naissance') }}</label>
                             <div class="col-md-6">
                                 <input type="date" name="date" id="date" class="form-control @error('date') is-invalid @enderror" style="width: 100%; display: inline;" name="date" value="{{ old('date') }}" required autocomplete="date">
                                 @error('date')
@@ -158,11 +157,10 @@
                             <label for="art" class="col-md-6 col-lg-6 control-label">{{ __('Selectionner votre art') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>art 1</option>
-                                    <option value="1">art 2</option>
-                                    <option value="2">art 3</option>
-                                    <option value="3">art 4</option>
+                                <select name=art class="form-select" aria-label="Default select example">
+                                    @foreach (\App\Models\Art::all() as $art)
+                                        <option value={{$art->type}} {{old("art") == $art->type ? 'selected' : ''}}>{{$art->type}}</option>
+                                    @endforeach
                                   </select>
                                 @error('art')
                                     <span class="invalid-feedback" role="alert">
@@ -170,6 +168,20 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="art" class="col-md-6 col-lg-6 control-label">{{ __('Sexe') }}</label>
+
+                            <div class="col-md-6">
+                                <input class="form-check-input" type="radio" id="inlineCheckbox1" name=gender value="Homme" {{old("gender") == "Homme" ? 'checked': ''}}>
+                                <label class="form-check-label" for="inlineCheckbox1">Homme</label>
+                              
+                                <input class="form-check-input" type="radio" id="inlineCheckbox2" name=gender value="Femme" {{old("gender") == "Femme" ? 'checked': ''}}>
+                                <label class="form-check-label" for="inlineCheckbox2">Femme</label>
+                            </div>
+                                
+                             
                         </div>
 
                         <div class="row mb-3">

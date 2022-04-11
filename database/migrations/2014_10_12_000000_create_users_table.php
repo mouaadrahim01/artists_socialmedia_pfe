@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('prenom',50);
             $table->string('email',50)->unique();
             $table->string('password');
-            $table->date('date_naissance');
+            $table->date('date');
             $table->string('image',299)->default('default.jpg');
             $table->string('pays',30)->default("maroc");
             $table->string('description',255)->nullable();
             $table->string('art',50);
+            $table->string('gender');
             $table->timestamps();
         });
     }

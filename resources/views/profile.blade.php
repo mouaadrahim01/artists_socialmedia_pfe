@@ -23,9 +23,18 @@
                     <input type="hidden" name="_token" value="{{ csrf_token()}}">
                     <input type="submit" class="pull-right btn-sm btn-primary">
 
+
              </form>
             <br> <a href="{{url('/editpage',$user->id)}}" class ="btn btn-outline-secondary mt-3">modifier mes information </a>
 </div>       
+
+                   username :  {{ Auth::user()->name}}  <br>
+                   email    :  {{ Auth::user()->email}} 
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 </div> 
 </div>
