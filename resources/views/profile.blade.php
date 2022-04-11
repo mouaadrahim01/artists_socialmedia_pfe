@@ -28,8 +28,7 @@
             <br> <a href="{{url('/editpage',$user->id)}}" class ="btn btn-outline-secondary mt-3">modifier mes information </a>
 </div>       
 
-                   username :  {{ Auth::user()->name}}  <br>
-                   email    :  {{ Auth::user()->email}} 
+                   
                 </div>
             </div>
         </div>

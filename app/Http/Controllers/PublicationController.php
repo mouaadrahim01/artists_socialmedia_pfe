@@ -1,16 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Providers\RouteServiceProvider;
-use Dotenv\Validator;
-use App\Models\Publication;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Symfony\Contracts\Service\Attribute\Required;
 
 class PublicationController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
