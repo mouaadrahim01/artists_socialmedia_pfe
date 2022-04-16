@@ -1,36 +1,71 @@
-<!DOCTYPE html>
-<html>
-    <head>
-         <title>Edit page</title>
-    </head>
-    <body>
-      <center>   
+@extends('layouts.app')
 
- <h1> Edit page</h1>
-  <form  action="{{url('/update',$user->id )}} " methode="POST" enctype="multipart/from-user"   >
- 
-    @csrf 
- 
-         <label>Name</label>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">{{ __('Edit page') }}</div>
 
-          <input type="text" name="name" value="{{$user->name}}">
-       
+              <div class="card-body">
+                <h1> Edit page</h1>
+                  <form  action="{{url('/update',$user )}} " methode="POST" enctype="multipart/from-user"   >
+                    @csrf 
+                    @method('PUT')
+                    <div class="col-xl-12">
+                      <div class="dashboard-box mt-0 p-2">
+                          <img height="80" width="80" src="/uploads/images/{{$user->image }}" required>
+                            <label>change image</label><br>
+                          <input  type="file" name="file">
+                          <input type="hidden" name="_token" value="{{ csrf_token()}}">
+                          <br><br>
+                                          
+                        <div class="col-xl-6">
+                           <div class="submit-field">
+                              <h5>Nom</h5>
+                              <input type="text" class="col-md-6 col-lg-6 control-label" name="name" value="{{$user->name}}" required>
 
-            <br><br>
+                             </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="submit-field">
+                              <h5>Prenome</h5>
+                              <input type="text" class="col-md-6 col-lg-6 control-label" name="prenom" value="{{$user->prenom}}" required>
+                              <br><br>
+                            </div>
+                        </div>
 
-          <label>email</label>
-          <input type="email" name="email" value="{{$user->email}}">
-          <br><br>
-          <img height="80" width="80" src="/stortage/{{$user->image}}">
-          <label>change image</label>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>Email</h5>
+                              <input type="email" class="col-md-6 col-lg-6 control-label" name="email" value="{{$user->email}}" required>
+                              <br><br>
+                            </div>
+                        </div>
+                      </div>
+                    
+                      <div class="row mt-2 p-2">
+              
+                        <div class="col-xl-12">
+                          <div class="submit-field mt-3">
+                            <h5>Description</h5>
+                            <textarea cols="30" rows="5" class="with-border" name="description">{{$user->description}}</textarea>
+                          </div>
+                        </div>
+              
+                      </div>
 
-          <input  type="file" name="file">
-          <br><br>
-          <input type="submit" class="pull-right btn-sm btn-primary" value="update">
-          @method('PUT')
-</form>
-</center>
+                      
+                      <input type="submit" class="pull-right btn-sm btn-primary" value="update">
+                      
 
-</body>
+                    </form>
+                </div>
+            </div>
 
-</html>
+        </div>
+    </div>
+    
+</div>
+
+@endsection

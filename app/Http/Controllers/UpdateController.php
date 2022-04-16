@@ -13,6 +13,7 @@ class UpdateController extends Controller
        $user=user::find($id);
        return view('editpage',compact('user'));
    }
+   
    public function update(Request $request,$id){
     $user=user::find($id);
       
@@ -23,20 +24,17 @@ class UpdateController extends Controller
         $user->image=$filename;
 
     }
-  
-    $user->name=$request->name;
-    $user->email=$request->email;
-  
     
-    $user->save();
+    $user->update([
+    'name'=>$request->name,
+    'prenom'=>$request->prenom,
+    'email'=>$request->email,
+    'description'=>$request->description,
+    ]);
+   
+    
     return redirect()->back();
-    
-
-
-
-
-
-   }
+    }
     
 
 
