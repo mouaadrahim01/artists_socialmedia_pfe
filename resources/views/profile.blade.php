@@ -31,7 +31,6 @@
             <br> <a href="{{url('/editpage',$user->id)}}" class ="btn btn-outline-secondary mt-3">modifier mes information </a>
             <br>
            
-            <follow-button> </follow-button>
            
 
             
