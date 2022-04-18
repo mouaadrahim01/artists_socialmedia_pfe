@@ -17,14 +17,7 @@
              username :  {{ Auth::user()->name}}  <br>
                    <hr>
                    email    :  {{ Auth::user()->email}} <br>
-                <form enctype="multipart/form-data" action="/profile" methode="POST">
-                    <label>Update Profile Image </label><br>
-                    <input  type="file" name="image">
-                    <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                    <input type="submit" class="pull-right btn-sm btn-primary">
-
-
-             </form>
+                
             <br> <a href="{{url('/editpage',$user->id)}}" class ="btn btn-outline-secondary mt-3">modifier mes information </a>
         </div>       
 
@@ -35,21 +28,19 @@
     </div>
 
 </div>
-<div class="container">
-    @foreach (\App\Models\Publication::all() as $post)
-    @if ($post->type='poste')
+    <div class="row mt-5">
+        @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)
+            @if ($post->type='poste')
         
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+                <div class="col-md-4 pb-3">
 
-                <img src="{{asset('files').'/'.$post->file}}"  style="object-fit:cover;">
+                    <img src="{{asset('files').'/'.$post->file}}" class="img-fluid" style="" width="400px" height="300px">
 
-            </div>
-        </div>
+                </div>
+            @endif
+        @endforeach
     </div>
-    @endif
-    @endforeach
+   
 </div>
 
 

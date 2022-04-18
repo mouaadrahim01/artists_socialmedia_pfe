@@ -2,24 +2,43 @@
 
 @section('content')
 <div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header">{{ __('Update Image') }}</div> 
+                        
+            <div class="col-sm-4 py-2 text-center pr-0 pr-sm-1">
+              <form method=post class='formImage' enctype="multipart/form-data" action="{{route('update_avatar')}}" >
+                @csrf
+              <span class="avatar-wrapper position-relative avatarUpload" title="Change Avatar">
+                <img height="150" width="150" class="profile-pic d-inline border border-primary" src="{{asset('/uploads/images/').'/'.$user->image}}" alt="image de profile"  required>
+                        <br>
+                      <input  type="file" name="avatar">
+                      <input type="hidden" name="_token" value="{{ csrf_token()}}">
+              </span>
+              <input type="submit" class="pull-right btn-sm btn-primary" value="update image">
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">{{ __('Edit page') }}</div>
+                <div class="card-header">{{ __('Edit page') }}</div> 
 
-              <div class="card-body">
-                <h1> Edit page</h1>
-                  <form  action="{{url('/update',$user )}} " methode="POST" enctype="multipart/from-user"   >
+            <form  action="{{url('/update',$user )}} " methode="POST" enctype="multipart/form-data">
                     @csrf 
                     @method('PUT')
+                   
+
                     <div class="col-xl-12">
                       <div class="dashboard-box mt-0 p-2">
-                          <img height="80" width="80" src="/uploads/images/{{$user->image }}" required>
-                            <label>change image</label><br>
-                          <input  type="file" name="file">
-                          <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                          <br><br>
-                                          
+                        
                         <div class="col-xl-6">
                            <div class="submit-field">
                               <h5>Nom</h5>
@@ -65,7 +84,6 @@
 
         </div>
     </div>
-    
-</div>
+ 
 
 @endsection
