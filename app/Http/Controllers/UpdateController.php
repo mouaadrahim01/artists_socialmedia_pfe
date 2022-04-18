@@ -10,7 +10,7 @@ class UpdateController extends Controller
     
     //
    public function editpage($id){
-       $user=user::find($id);
+       $user=User::find($id);
        return view('editpage',compact('user'));
    }
    public function update(Request $request,$id){

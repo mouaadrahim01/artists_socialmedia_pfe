@@ -5,6 +5,7 @@
     </head>
     <body>
       <center>   
+     
 
  <h1> Edit page</h1>
   <form  action="{{url('/update',$user->id )}} " methode="POST" enctype="multipart/from-user"   >
@@ -21,7 +22,7 @@
           <label>email</label>
           <input type="email" name="email" value="{{$user->email}}">
           <br><br>
-          <img height="80" width="80" src="/stortage/{{$user->image}}">
+          <img height="80" width="80" src="/uploads/images/{{$user->image}}">
           <label>change image</label>
 
           <input  type="file" name="file">

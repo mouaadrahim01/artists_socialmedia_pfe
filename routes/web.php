@@ -15,17 +15,21 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.index');
 });
-
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
-Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profileupdate');
+Route::post('/abonne', [App\Http\Controllers\UserController::class, 'abonne_user'])->name('abonne_user');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('update_avatar');
 Route::get('/editpage/{id}', [App\Http\Controllers\UpdateController::class,'editpage']);
-Route::put('/update/{id}', [App\Http\Controllers\UpdateController::class,'update'])->name('update');
+Route::any('/update/{id}', [App\Http\Controllers\UpdateController::class,'update'])->name('update');
+
+
+// Route::get('profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('publications/create',[App\Http\Controllers\PublicationController::class, 'create'])->name('publications.create');
-Route::any('publications',[App\Http\Controllers\PublicationController::class, 'store'])->name('publications.store');
+Route::post('publications',[App\Http\Controllers\PublicationController::class, 'store'])->name('publications.store');
+
+

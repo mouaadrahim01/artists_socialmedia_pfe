@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
+use App\Models\Amis;
 use Image;
 
 
@@ -57,5 +58,33 @@ class UserController extends Controller
      return view('profile',array('user'=>Auth::user()));
     }
 
+   
+    public function abonne_user(Request $request){
+      if($request->ajax())
+        {
+          $rep=0;
+         $user= $request->id_user;
+         $following=null;
+         $following=Amis::where('user_id',$user)->where('user_id2',$user)->first();
+         if($following){
+
+          $del=Amis::where('user_id',$user)->where('user_id2',$user)->delete();
+          $rep=2;
+         }
+         else{
+          $amis=new Amis();
+          $amis->user_id= $user;
+          $amis->user_id2= $user;
+          $save=$amis->save();
+          if($save) $rep=1;
+         }
     
+         
+
+           return response()->json([
+            'reponse'=>$rep, 
+
+            ]);
+        }
+    }
 } 
