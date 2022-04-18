@@ -18,14 +18,7 @@
              
                    <hr>
                   {{ Auth::user()->email}} <br>
-                <from enctype="multipart/form-data" action="/profile" methode="POST"><br>
-                    <label>Update Profile Image </label><br>
-                    <input  type="file" name="image">
-                    <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                    <input type="submit" class="pull-right btn-sm btn-primary">
-                    
-
-             </from>
+            
             <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
              <input type="button"  class="<?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
             <br> <a href="{{url('/editpage',$user->id)}}" class ="btn btn-outline-secondary mt-3">modifier mes information </a>
