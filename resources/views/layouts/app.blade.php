@@ -13,7 +13,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 
@@ -107,6 +107,10 @@
             @yield('content')
         </main>
     </div>
-    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+@yield('js')
 </body>
 </html>
