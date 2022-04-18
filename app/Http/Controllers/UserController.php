@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Http\Controllers\Redirect;
 use Illuminate\Http\Request;
 use App\Models\User;
+
+use Illuminate\Support\Facades\Validator;
 use App\Models\Amis;
 use Image;
-
 
 class UserController extends Controller
 {
@@ -15,12 +17,14 @@ class UserController extends Controller
   {
       return view('profile')->withUser(Auth::user());
   }
- 
 
   public function show() {
 
     return view('user')->withUser(Auth::user());
   }
+
+ 
+
    
     public function abonne_user(Request $request){
       if($request->ajax())
@@ -51,3 +55,4 @@ class UserController extends Controller
         }
     }
 } 
+

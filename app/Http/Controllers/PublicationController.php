@@ -25,15 +25,22 @@ class PublicationController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request);
-        // return $request->all();
        
         $pub = new Publication();
         $pub->user_id=Auth::user()->id;
         $pub->type=$request->input('type');
-        $pub->file=$request->input('file');
         $pub->statu=$request->input('statu');
         $pub->droit=$request->input('droit');
+        
+        $imageName = time().'.'.$request->image->extension();
+          $request->image->move(public_path("files"),$imageName);
+         
+          if(($img=$pub->file) && $pub->file!='null'){
+            if(file_exists(public_path("images/$img")))
+                unlink(public_path("images/$img"));
+        }
+          $pub->file=$imageName;
+       
         $pub->save();
         session()->flash('success','envoyer la publication');
         return redirect('/home');

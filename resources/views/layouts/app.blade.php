@@ -68,14 +68,12 @@
                         @else
                         <li class="dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
-                        <img src="/uploads/images/{{Auth::user()->image}}" style="width:32px;height:32px;position:absolute; top:10px;left:10px; border-radius:50% ">
-                        </a>
+                        <img src="/uploads/images/{{Auth::user()->image}}" style="width:32px;height:32px;position:absolute; top:6px;left:5px; border-radius:50% ">
+                        </a></li>
                             <li class="dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
                                 
-
-                       
 
                                     {{ Auth::user()->name }} <span calss="caret"></span>
                                 </a>
