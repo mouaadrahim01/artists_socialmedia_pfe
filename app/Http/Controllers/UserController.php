@@ -54,5 +54,35 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function abonne_users(Request $request){
+      if($request->ajax())
+        {
+          $rep=0;
+         $user= $request->id_user;
+         $userfollow= $request->id_userfollow;
+         $following=null;
+         $following=Amis::where('user_id',$user)->where('user_id2',$userfollow)->first();
+         if($following){
+
+          $del=Amis::where('user_id',$user)->where('user_id2',$userfollow)->delete();
+          $rep=2;
+         }
+         else{
+          $amis=new Amis();
+          $amis->user_id= $user;
+          $amis->user_id2= $userfollow;
+          $save=$amis->save();
+          if($save) $rep=1;
+         }
+    
+         
+
+           return response()->json([
+            'reponse'=>$rep, 
+
+            ]);
+        }
+    }
 } 
 

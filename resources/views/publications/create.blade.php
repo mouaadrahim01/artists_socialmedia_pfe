@@ -21,8 +21,7 @@
                         <div class="form-group">
                                 <input class="form-check-input" type="radio" id="inlineCheckbox1" name=droit value="1" {{old("droit") == "public" ? 'checked': ''}}>
                                 <label class="form-check-label" for="inlineCheckbox1">Public</label>
-                              
-                                <input class="form-check-input" type="radio" id="inlineCheckbox2" name=droit value="2" {{old("droit") == "privé" ? 'checked': ''}}>
+                                <input class="form-check-input" type="radio" id="inlineCheckbox2" name=droit value="0" {{old("droit") == "privé" ? 'checked': ''}}>
                                 <label class="form-check-label" for="inlineCheckbox2">Privé</label>
                         </div>
                         <br><br> 

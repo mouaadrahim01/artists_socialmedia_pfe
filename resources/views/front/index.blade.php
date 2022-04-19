@@ -110,7 +110,7 @@ https://templatemo.com/tm-563-seo-dream
                   </div>
                   <div class="col-lg-12">
                     <div class="main-green-button scroll-to-section">
-                      <a href="#contact">Get Your Quote</a>
+                      <a href="register">Get Your Quote</a>
                     </div>
                   </div>
                 </div>

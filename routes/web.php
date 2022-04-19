@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 
 Route::post('/abonne', [App\Http\Controllers\UserController::class, 'abonne_user'])->name('abonne_user');
+Route::post('/abonne-user', [App\Http\Controllers\UserController::class, 'abonne_users'])->name('abonne_users');
 
 
 Route::get('/editpage/{id}', [App\Http\Controllers\UpdateController::class,'editpage']);
@@ -33,7 +36,11 @@ Route::any('/update', [App\Http\Controllers\UpdateController::class,'uploadImage
 
 Route::post('/abonne', [App\Http\Controllers\UserController::class, 'abonne_user'])->name('abonne_user');
 
-Route::get('publications/create',[App\Http\Controllers\PublicationController::class, 'create'])->name('publications.create');
-Route::post('publications',[App\Http\Controllers\PublicationController::class, 'store'])->name('publications.store');
+Route::get('publications/create',[PublicationController::class, 'create'])->name('publications.create');
+Route::post('publications',[PublicationController::class, 'store'])->name('publications.store');
+Route::any('users/view-profile/{id}',[ProfileController::class, 'view_profile'])->name('view.profile');
+Route::any('users/liste-amis',[ProfileController::class, 'liste_amis'])->name('view.listeamis');
+
+
 
 
