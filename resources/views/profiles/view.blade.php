@@ -22,7 +22,7 @@
                         
     		<?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
                         	<?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
-                            <input type="button"  class="<?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
+                            <input type="button"  class="<?= ($following)? 'btn btn-primary' : 'btn btn-secondary' ; ?> btn-follow" value="<?= ($following)? 'FOLLOW' : 'INFOLLOW' ; ?>">
                         <br>
 
                 </div>    
@@ -33,12 +33,11 @@
             <div class="card">
 
                 <div class="row mt-5">
-                @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)                     
-                    
-                            <div class="col-md-4 pb-3">
-                                <div class="card-header"  >           
-                                    <img src="{{asset('files').'/'.$post->file}}" class="img-fluid" style="" width="400px" height="200px">
-                                    {{$post->statu}}
+                    @foreach($publications as $publication)
+                    <div class="col-md-4 pb-3">
+                                <div class="card-header"  >            
+                                    <img src="{{asset('files').'/'.$publication->file}}" class="img-fluid" style="" width="400px" height="200px">
+                                    {{$publication->statu}}
                                 </div> 
                             </div>
                     @endforeach
