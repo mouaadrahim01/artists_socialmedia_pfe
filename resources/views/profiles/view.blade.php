@@ -1,32 +1,58 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12gi">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header"  >{{ __('User profile') }}</div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{$user->name}}</h1>
-    <img src="{{asset('uploads/images').'/'.$user->image}}" width="200px" height="200px" alt="">
-    <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
-                        <input type="button"  class="<?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
+                <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <img src="{{asset('uploads/images').'/'.$user->image}}" style="width:150px;height: 150px; float:left; border-radius:50%; margin-right:25px;"><br> <hr>
                         
+		<h1>{{$user->name}}</h1>
+                            
+          
+                        
+    		<?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
+                        	<?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
+                            <input type="button"  class="<?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
                         <br>
-    @foreach($publications as $publication)
-                {{$publication->statu}} pppppppp <br>
 
+                </div>    
+           
+            </div>
+            <br><br>
+            <div class="col-md-12">
+            <div class="card">
 
+                <div class="row mt-5">
+                @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)                     
+                    
+                            <div class="col-md-4 pb-3">
+                                <div class="card-header"  >           
+                                    <img src="{{asset('files').'/'.$post->file}}" class="img-fluid" style="" width="400px" height="200px">
+                                    {{$post->statu}}
+                                </div> 
+                            </div>
+                    @endforeach
+                </div>     
+           
+            </div>
+        </div>
 
-     @endforeach 
+        </div>
+        </div>
+    </div>
 
-</body>
-</html>
-
+</div>
+  
 @endsection
 @section('js')
 <script >

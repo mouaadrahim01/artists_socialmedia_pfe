@@ -106,11 +106,11 @@ https://templatemo.com/tm-563-seo-dream
                     </div>
                   </div>
                   <div class="col-lg-12">
-                    <h2>SEO &amp; Digital Marketing Agency</h2>
+                    <h2>Show your art</h2>
                   </div>
                   <div class="col-lg-12">
                     <div class="main-green-button scroll-to-section">
-                      <a href="register">Get Your Quote</a>
+                      <a href="register">Get Your art</a>
                     </div>
                   </div>
                 </div>

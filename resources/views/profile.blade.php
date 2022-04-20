@@ -27,6 +27,12 @@
                         <br><a href="{{url('/editpage',$user->id)}}" class ="btn btn-outline-secondary mt-3">modifier mes information </a>
                         <br>
                 </div>    
+           
+            </div>
+            <br><br>
+            <div class="col-md-12">
+            <div class="card">
+
                 <div class="row mt-5">
                     @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)                     
                     
@@ -36,14 +42,18 @@
             
                             </div>
                     @endforeach
-                </div>   
-
+                </div>     
+           
             </div>
+        </div>
+
         </div>
         </div>
     </div>
 
 </div>
+  
+
     
 
 
