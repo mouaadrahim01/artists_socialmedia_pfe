@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <title>SEO Dream - Creative SEO HTML5 Template by TemplateMo</title>
+    <title>Show your art</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -265,40 +265,42 @@ https://templatemo.com/tm-563-seo-dream
   <div id="about" class="about-us section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-            <img src="assets/images/about-left-image.png" alt="">
+        {{-- <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+          <div class="section-heading"> --}}
+            <div class="col-md-12">
+              {{-- <div class="card"> --}}
+
+                <div class="row mt-5">
+                  @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)                     
+                  
+                          <div class="row">
+                            <div class="col-lg-4 col-sm-4">
+                              <div class="about-item">
+                                <ul class="nav">
+                                  <li class="scroll-to-section"><a href="{{route('profile')}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
+                                    <img src="/uploads/images/{{Auth::user()->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
+                                    </a></a></li>
+                                  <li class="scroll-to-section"><a href="{{route('profile')}}" style="width:32px;height:2px;top:4px" >{{$post->user_id}} </a></li>
+                                </ul>
+                                      
+                                        
+                              </div>
+                            </div>
+                            {{-- <div class="col-lg-1 col-sm-1">
+                              <div class="about-item">
+                                      <a id="navbarDropdown"  style="position:relative;" padding-left:50px;  href="{{ route('view.profile',$post->user_id)}}">{{$post->user_id}} </a> <br> 
+                                    </div>
+                            </div>       --}}
+                                        <img src="{{asset('files').'/'.$post->file}}" class="w-100">
+                              
+                          </div>
+                  @endforeach
+              </div>   
+     
+              {{-- </div> --}}
           </div>
-        </div>
-        <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-          <div class="section-heading">
-            <h6>About Us</h6>
-            <h2>Top <em>marketing</em> agency &amp; consult your website <span>with us</span></h2>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-sm-4">
-              <div class="about-item">
-                <h4>750+</h4>
-                <h6>projects finished</h6>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-              <div class="about-item">
-                <h4>340+</h4>
-                <h6>happy clients</h6>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-              <div class="about-item">
-                <h4>128+</h4>
-                <h6>awards</h6>
-              </div>
-            </div>
-          </div>
-          <p><a rel="nofollow" href="https://templatemo.com/tm-563-seo-dream" target="_parent">SEO Dream</a> is free digital marketing CSS template provided by TemplateMo website. You are allowed to use this template for your business websites. Please DO NOT redistribute this template ZIP file on any Free CSS collection websites. You may contact us for more information. Thank you.</p>
-          <div class="main-green-button"><a href="#">Discover company</a></div>
-        </div>
-      </div>
+        {{-- </div>
+      </div> --}}
     </div>
   </div>
 

@@ -23,7 +23,7 @@
 					<div class="dashboard-nav-inner py-1">
 
 						<ul>
-							<li class="@yield('dashboard')"><a href="{{Route('publications.store')}}"><i class="fa fa-tachometer"></i> new publication</a></li>
+							<li class="@yield('dashboard')"><a href="{{Route('publications.create')}}"><i class="fa fa-tachometer"></i> new publication</a></li>
 							<li class="@yield('messages')"><a href="{{route('view.listeamis')}}"><i class="fa fa-envelope"></i> Amis</a></li>
 							<li class="@yield('avis')"><a href="{{route('profile')}}"><i class="fa fa-star"></i> profile</a></li>
 						</ul>

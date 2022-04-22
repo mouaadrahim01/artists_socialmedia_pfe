@@ -17,7 +17,7 @@ class PublicationController extends Controller
     }
 
     public function index(){
-        
+        $publications = Publication::wherein('user_id')->latest()->paginate(5);
     }
 
     public function create(){
