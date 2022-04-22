@@ -62,8 +62,8 @@ https://templatemo.com/tm-563-seo-dream
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#features">Features</a></li>
-              <li class="scroll-to-section"><a href="#about">About Us</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
+              <li class="scroll-to-section"><a href="#about">Poste</a></li>
+              <li class="scroll-to-section"><a href="#services">Project</a></li>
               <li class="scroll-to-section"><a href="{{route('login')}}">Login</a></li>
               <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
               <li class="scroll-to-section"><div class="main-blue-button"><a href="{{route('register')}}">Register</a></div></li> 
@@ -303,123 +303,46 @@ https://templatemo.com/tm-563-seo-dream
       </div> --}}
     </div>
   </div>
-
-  <div id="services" class="our-services section">
+<br><br>
+  <div id="services" class="about-us section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <h6>Our Services</h6>
-            <h2>Discover What We Do &amp; <span>Offer</span> To Our <em>Clients</em></h2>
+        {{-- <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+          <div class="section-heading"> --}}
+            <div class="col-md-12">
+              {{-- <div class="card"> --}}
+
+                <div class="row mt-5">
+                  @foreach (\App\Models\Publication::where('type','=','project')->get() as $post)                     
+                  
+                          <div class="row">
+                            <div class="col-lg-4 col-sm-4">
+                              <div class="about-item">
+                                <ul class="nav">
+                                  <li class="scroll-to-section"><a href="{{route('profile')}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
+                                    <img src="/uploads/images/{{Auth::user()->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
+                                    </a></a></li>
+                                  <li class="scroll-to-section"><a href="{{route('profile')}}" style="width:32px;height:2px;top:4px" >{{$post->user_id}} </a></li>
+                                </ul>
+                                      
+                                        
+                              </div>
+                            </div>
+                            {{-- <div class="col-lg-1 col-sm-1">
+                              <div class="about-item">
+                                      <a id="navbarDropdown"  style="position:relative;" padding-left:50px;  href="{{ route('view.profile',$post->user_id)}}">{{$post->user_id}} </a> <br> 
+                                    </div>
+                            </div>       --}}
+                                        <img src="{{asset('files').'/'.$post->file}}" class="w-100">
+                                        {{$post->statu}}
+                          </div>
+                  @endforeach
+              </div>   
+     
+              {{-- </div> --}}
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="service-item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="icon">
-                  <img src="assets/images/service-icon-01.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="right-content">
-                  <h4>Similar Websites</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dormque laudantium.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="icon">
-                  <img src="assets/images/service-icon-02.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="right-content">
-                  <h4>Website Trends</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dormque laudantium.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="icon">
-                  <img src="assets/images/service-icon-03.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="right-content">
-                  <h4>Traffic Analysis</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dormque laudantium.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="icon">
-                  <img src="assets/images/service-icon-03.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="right-content">
-                  <h4>Optimizing Keywords</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dormque laudantium.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.7s">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="icon">
-                  <img src="assets/images/service-icon-01.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="right-content">
-                  <h4>Page Optimizations</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dormque laudantium.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.8s">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="icon">
-                  <img src="assets/images/service-icon-02.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="right-content">
-                  <h4>Deep URL Analysis</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dormque laudantium.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        {{-- </div>
+      </div> --}}
     </div>
   </div>
 
