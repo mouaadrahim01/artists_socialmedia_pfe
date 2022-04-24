@@ -12,7 +12,7 @@
               <form method=post class='formImage' enctype="multipart/form-data" action="{{route('update_avatar')}}" >
                 @csrf
               <span class="avatar-wrapper position-relative avatarUpload" title="Change Avatar">
-                <img height="150" width="150" class="profile-pic d-inline border border-primary" src="{{asset('/uploads/images/').'/'.$user->image}}" alt="image de profile"  required>
+                <img class="rounded-circle avatar-lg img-thumbnail" src="{{asset('/uploads/images/').'/'.$user->image}}" alt="image de profile"  required>
                         <br>
                       <input  type="file" name="avatar">
                       <input type="hidden" name="_token" value="{{ csrf_token()}}">
@@ -74,10 +74,42 @@
               
                       </div>
 
-                      
-                      <input type="submit" class="pull-right btn-sm btn-primary" value="update">
-                      
+                      <div class="col-xl-12">
+					<div id="test1" class="dashboard-box pt-2">
 
+						<!-- Headline -->
+
+						<div class="content with-padding">
+							<div class="row mt-2 p-2">
+                <div class="headline text-center border-bottom border-primary">
+                  <h3><i class="fa fa-lock"></i> changer le mot de passe</h3>
+                </div>
+                
+								<div class="col-xl-6">
+                  <br><br>
+									<div class="submit-field">
+										<h5>Mot de passe</h5>
+										<input type="password" name="password" id="pass" class="with-border password" autocomplete="new-password">
+									</div>
+								</div>
+
+								<div class="col-xl-6">
+									<div class="submit-field">
+                    <br><br>
+										<h5>Validation de mot de passe</h5>
+										<input type="password" id="conf" name="password_confirmation" class="with-border password mb-1" autocomplete="new-password">
+									</div>
+                                    <h6 class="text-danger" id="erreur_pass" style="display:none">le mot de pass et la confirmation doivent etre identiques et plus long que 8 caracteres</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+        <br><br>
+                      <div class="col-md-7 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Update') }}
+                        </button>
                     </form>
                 </div>
             </div>

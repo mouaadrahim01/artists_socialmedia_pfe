@@ -35,9 +35,9 @@
                                           <div class="about-item">
                                             <ul class="nav">
                                               <li class="scroll-to-section"><a href="{{route('profile')}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
-                                                <img src="/uploads/images/{{Auth::user()->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
+                                                <img src="/uploads/images/{{$post->user->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
                                                 </a></a></li>
-                                              <li class="scroll-to-section"><a href="{{route('profile')}}" style="width:32px;height:2px;top:4px" >{{$post->user_id}} </a></li>
+                                                <li class="scroll-to-section"><a href="{{route('profile')}}" style="width:32px;height:2px;top:4px" >{{$post->user->name}} {{$post->user->prenom}}</a></li>
                                             </ul>
                                                   
                                                     
@@ -48,7 +48,7 @@
                                                   <a id="navbarDropdown"  style="position:relative;" padding-left:50px;  href="{{ route('view.profile',$post->user_id)}}">{{$post->user_id}} </a> <br> 
                                                 </div>
                                         </div>       --}}
-                                                    <img src="{{asset('files').'/'.$post->file}}" class="w-100">
+                                                    <img src="{{asset('files').'/'.$post->file}}" style="width:600px;height:550px;top:4px">
                                           
                                       </div>
                               @endforeach

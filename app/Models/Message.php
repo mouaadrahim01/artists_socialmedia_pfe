@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Publication extends Model
+class Mzssage extends Model
 {
     use HasFactory , HasApiTokens,Notifiable;
-    protected $table = "publications";
-    
+    protected $table = "messages";
+
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
@@ -23,11 +23,12 @@ class Publication extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type',
-        'file',
-        'statu',
-        'is_image',
-        'droit'
+        'user_id',
+        'recepteur_id',
+        'conv_id',
+        'contenu',
+        'type_message',
+        'Vu'
     ];
 
    

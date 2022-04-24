@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Profiler\Profile;
-
+use Illuminate\Support\Facades\Hash;
 class UpdateController extends Controller
 {
     
@@ -27,7 +27,9 @@ class UpdateController extends Controller
     'description'=>$request->description,
     ]);
    
-    
+    if($request["password"] != "")
+            $user->password=Hash::make($request["password"]);
+        $user->save();
     return redirect('/profile');
     }
 
@@ -38,7 +40,7 @@ class UpdateController extends Controller
           $imageName = time().'.'.$request->avatar->extension();
           $request->avatar->move(public_path("/uploads/images/"),$imageName);
           $user=Auth::user();
-          if(($img=$user->image) && $user->image!='default.png'){
+          if(($img=$user->image) && $user->image!='default.jpg'){
             if(file_exists(public_path("/uploads/images/$img")))
                 unlink(public_path("/uploads/images/$img"));
         }

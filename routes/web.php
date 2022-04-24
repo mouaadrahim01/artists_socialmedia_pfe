@@ -41,6 +41,5 @@ Route::post('publications',[PublicationController::class, 'store'])->name('publi
 Route::any('users/view-profile/{id}',[ProfileController::class, 'view_profile'])->name('view.profile');
 Route::any('users/liste-amis',[ProfileController::class, 'liste_amis'])->name('view.listeamis');
 
-
-
+Route::get('authadmin/index',[PublicationController::class, 'create'])->name('publications.create');
 
