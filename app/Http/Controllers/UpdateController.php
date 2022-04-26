@@ -40,7 +40,7 @@ class UpdateController extends Controller
           $imageName = time().'.'.$request->avatar->extension();
           $request->avatar->move(public_path("/uploads/images/"),$imageName);
           $user=Auth::user();
-          if(($img=$user->image) && $user->image!='default.jpg'){
+          if(($img=$user->image) && $user->image!='default.png'){
             if(file_exists(public_path("/uploads/images/$img")))
                 unlink(public_path("/uploads/images/$img"));
         }

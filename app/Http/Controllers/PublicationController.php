@@ -45,4 +45,36 @@ class PublicationController extends Controller
         session()->flash('success','envoyer la publication');
         return redirect('/home');
     }
+
+    public function edit($id){
+        $publication = Publication::find($id);
+        return view('publications.edit',['publication' => $publication]);
+    }
+
+    public function update(Request $request ,$id){
+        $publication = Publication::find($id);
+        $publication->type=$request->input('type');
+        $publication->statu=$request->input('statu');
+        $publication->droit=$request->input('droit');
+        
+        $imageName = time().'.'.$request->image->extension();
+          $request->image->move(public_path("files"),$imageName);
+         
+          if(($img=$publication->file)){
+            if(file_exists(public_path("images/$img")))
+                unlink(public_path("images/$img"));
+        }
+          $publication->file=$imageName;
+       
+        $publication->save();
+        session()->flash('success','envoyer la publication');
+        return redirect('/home');
+    }
+
+    public function destroy(Request $request ,$id){
+        $publication = Publication::find($id);
+        $publication->delete();
+        return redirect('profile');
+    }
+
 }

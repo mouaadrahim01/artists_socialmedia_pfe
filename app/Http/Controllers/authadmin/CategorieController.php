@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\User;
-use App\Models\Art;
+namespace App\Http\Controllers\authadmin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Art ;
 
 class CategorieController extends Controller
 {
     public function index($id){
-        return view("authadmin.categorie.index");
+        $arts = Art::All();
+        return view("authadmin.categorie.index",compact('arts'));
     }
 
     public function edit(){
         //
         return view("authadmin.categorie.edit");
     }
-    
-
-
-
 }

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\authadmin\IndexController;
+use App\Http\Controllers\authadmin\PubController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +40,27 @@ Route::post('/abonne', [App\Http\Controllers\UserController::class, 'abonne_user
 
 Route::get('publications/create',[PublicationController::class, 'create'])->name('publications.create');
 Route::post('publications',[PublicationController::class, 'store'])->name('publications.store');
+Route::any('publications/edit/{id}', [App\Http\Controllers\PublicationController::class,'edit']);
+Route::any('publications/{id}', [App\Http\Controllers\PublicationController::class,'update']);
+Route::any('publications/delet/{id}', [App\Http\Controllers\PublicationController::class,'destroy']);
+
+
 Route::any('users/view-profile/{id}',[ProfileController::class, 'view_profile'])->name('view.profile');
 Route::any('users/liste-amis',[ProfileController::class, 'liste_amis'])->name('view.listeamis');
+// Route::group(['middleware'=>'auth'],function(){
 
-Route::get('authadmin/index',[PublicationController::class, 'create'])->name('publications.create');
+    
+// });
 
+Route::group(['namespace' => 'AuthAdmin', 'prefix'=>'authadmin', 'middleware'=>'auth.admin'],function(){
+
+    
+});
+
+Route::get('authadmin/login',[IndexController::class, 'login'])->name('authadmin.login');
+Route::get('authadmin/index',[IndexController::class, 'index'])->name('authadmin.index');
+Route::get('authadmin/Publication',[PubController::class, 'index'])->name('authadmin.pub.index');
+Route::get('authadmin/User',[ProfController::class, 'index'])->name('authadmin.profile.index');
+Route::get('authadmin/Categorie',[CategorieController::class, 'index'])->name('authadmin.categorie.index');
+
+    

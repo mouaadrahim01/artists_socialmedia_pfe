@@ -186,17 +186,19 @@
                     <h4 class="header-title mb-3">Team Members <i class="mdi mdi-account-multiple ms-1"></i></h4>
 
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">
+                        @foreach(\App\Models\User::get() as $user) 
+                        <a href="{{ route('view.profile',$user->id)}}" class="list-group-item list-group-item-action">
                             <div class="d-flex align-items-center pb-1" id="tooltips-container">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
+                                <img src="/uploads/images/{{$user->image}}" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
                                 <div class="w-100 ms-2">
-                                    <h5 class="mb-1">Herbert Stewart<i class="mdi mdi-check-decagram text-info ms-1"></i></h5>
-                                    <p class="mb-0 font-13 text-muted">Co Founder</p>
+                                    <h5 class="mb-1">{{$user->name}} {{$user->prenom}}<i class="mdi mdi-check-decagram text-info ms-1"></i></h5>
+                                    <p class="mb-0 font-13 text-muted">{{$user->art}}</p>
                                 </div>
                                 <i class="mdi mdi-chevron-right h2"></i>
                             </div>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        @endforeach
+                        {{-- <a href="#" class="list-group-item list-group-item-action">
                             <div class="d-flex align-items-center pb-1" id="tooltips-container">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
                                 <div class="w-100 ms-2">
@@ -225,7 +227,7 @@
                                 </div>
                                 <i class="mdi mdi-chevron-right h2"></i>
                             </div>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </div>
@@ -356,25 +358,34 @@
 
                     <!-- Story Box-->
                     <div class="border border-light p-2 mb-3">
+                        @foreach (\App\Models\Publication::where('type','=','poste')->where("user_id",Auth::user()->id)->get() as $publication)
+                        <div class="dropdown float-end">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a href="{{url('publications/edit',$publication->id)}}" class="dropdown-item">Edit</a>
+                                <!-- item-->
+                                <a href="{{url('publications/delet',$publication->id)}}" class="dropdown-item">Delete</a>
+                            </div>
+                        </div>
                         <div class="d-flex align-items-start">
-                            <img class="me-2 avatar-sm rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="Generic placeholder image">
+                            <img class="me-2 avatar-sm rounded-circle" src="{{asset('uploads/images').'/'.Auth::user()->image}}" alt="Generic placeholder image">
                             <div class="w-100">
-                                <h5 class="">Thelma Fridley <small class="text-muted"> 1 hour ago</small></h5>
+                                <h5 class="">{{Auth::user()->name}} {{Auth::user()->prenom}}<small class="text-muted"> 1 hour ago</small></h5>
                                 <div class="">
-                                    Cras sit amet nibh libero, in
-                                    gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Duis
-                                    sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-                                    porta. Mauris massa.
+                                    <img src="{{asset('files').'/'.$publication->file}}"  width="300" class="img-fluid border-0">
+                                           <br> {{$publication->statu}}
                                     <br>
                                     <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> Reply</a>
                                 </div>
                             </div>
                             
                         </div>
-                        
+                        @endforeach
 
-                        <div class="post-user-comment-box">
+                     {{-- <div class="post-user-comment-box">
                             <div class="d-flex align-items-start">
                                 <img class="me-2 avatar-sm rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Generic placeholder image">
                                 <div class="w-100">
@@ -394,7 +405,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>   
 
                             <div class="d-flex align-items-start mt-2">
                                 <a class="pe-2" href="#">
@@ -404,16 +415,16 @@
                                     <input type="text" id="simpleinput" class="form-control border-0 form-control-sm" placeholder="Add comment">
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="mt-2">
+                        {{-- <div class="mt-2">
                             <a href="javascript: void(0);" class="btn btn-sm btn-link text-danger"><i class="mdi mdi-heart"></i> Like (28)</a>
                             <a href="javascript: void(0);" class="btn btn-sm btn-link text-muted"><i class="mdi mdi-share-variant"></i> Share</a>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <!-- Story Box-->
-                    <div class="border border-light p-2 mb-3">
+                    {{-- <div class="border border-light p-2 mb-3">
                         <div class="d-flex align-items-start">
                             <img class="me-2 avatar-sm rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Generic placeholder image">
                             <div class="w-100">
@@ -450,7 +461,7 @@
 
                     <div class="text-center">
                         <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-spin mdi-loading me-1"></i> Load more </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div> <!-- end card-->
 

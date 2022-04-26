@@ -14,7 +14,7 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <img src="{{asset('uploads/images').'/'.$user->image}}" style="width:150px;height: 150px; float:left; border-radius:50%; margin-right:25px;"><br> <hr>
+                                <img src="{{asset('uploads/images').'/'.$user->image}}" style="width:150px;height: 150px; float:left; border-radius:50%; margin-right:25px;" height="300" class="img-fluid border-0"><br> <hr>
                                 
                                 <h1>{{$user->name}}</h1>
                                     
@@ -35,7 +35,7 @@
                             @foreach($publications as $publication)
                                     <div class="col-md-4 pb-3">
                                         <div class="card-header"  >            
-                                            <img src="{{asset('files').'/'.$publication->file}}" class="img-fluid" style="" width="400px" height="200px">
+                                            <img src="{{asset('files').'/'.$publication->file}}" height="300" width="300" class="img-fluid border-0">
                                             {{$publication->statu}}
                                         </div> 
                                     </div>
