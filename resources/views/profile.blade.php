@@ -37,9 +37,9 @@
                         <div class="w-100 ms-3">
                             <h4 class="my-0">{{ Auth::user()->name}} </h4>
                             <p class="text-muted">@webdesigner</p>
-                            <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
+                            {{-- <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
                         <input type="button"  class=" btn-soft-primary btn-xs waves-effect mb-2 waves-light <?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
-                        
+                         --}}
                         </div>
                     </div>
 
@@ -49,8 +49,6 @@
                             {{ Auth::user()->description}}
                         </p>
                         <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2">{{ Auth::user()->name}} {{ Auth::user()->prenom}}</span></p>
-                    
-                        <p class="text-muted mb-2 font-13"><strong>Mobile :</strong><span class="ms-2">(123) 123 1234</span></p>
                     
                         <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ms-2">{{ Auth::user()->email}}</span></p>
                     
@@ -186,7 +184,7 @@
                     <h4 class="header-title mb-3">Team Members <i class="mdi mdi-account-multiple ms-1"></i></h4>
 
                     <div class="list-group">
-                        @foreach(\App\Models\User::get() as $user) 
+                        @foreach(\App\Models\User::where("id","!=",Auth::user()->id)->get() as $user) 
                         <a href="{{ route('view.profile',$user->id)}}" class="list-group-item list-group-item-action">
                             <div class="d-flex align-items-center pb-1" id="tooltips-container">
                                 <img src="/uploads/images/{{$user->image}}" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">

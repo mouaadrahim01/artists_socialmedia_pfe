@@ -4,21 +4,60 @@ this is post
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Liste Categorie</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                New Categorie
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Categorie</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row mb-3">
+                        <label for="typa" class="col-md-6 col-lg-6 control-label">{{ __('Typa') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="typa" type="text" class="form-control @error('typa') is-invalid @enderror" name="typa" value="{{ old('typa') }}" required autocomplete="typa" autofocus placeholder="Type">
+
+                            @error('typa')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br><br>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>id</th>
                         <th>Type</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>id</th>
                         <th>Type</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -26,6 +65,8 @@ this is post
                     <tr>
                         <td>{{$art->id}}</td>
                         <td>{{$art->type}}</td>
+                        <td><a href="{{url('authadmin/Categorie/delet',$art->id)}}" class="btn btn-primary">Delete</a></td>
+                        
                     </tr>
                     @endforeach
                     {{-- <tr>

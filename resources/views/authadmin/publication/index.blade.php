@@ -16,6 +16,7 @@ this is post
                         <th>statu</th>
                         <th>type</th>
                         <th>date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -25,6 +26,7 @@ this is post
                         <th>statu</th>
                         <th>type</th>
                         <th>date</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -35,6 +37,7 @@ this is post
                         <td>{{$publication->statu}}</td>
                         <td>{{$publication->type}}</td>
                         <td>{{$publication->created_at}}</td>
+                        <td><a href="{{url('authadmin/Publication/delet',$publication->id)}}" class="btn btn-primary">Delete</a></td>
                     </tr>
                     @endforeach
                     {{-- <tr>

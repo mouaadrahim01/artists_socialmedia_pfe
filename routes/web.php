@@ -6,6 +6,8 @@ use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\authadmin\IndexController;
 use App\Http\Controllers\authadmin\PubController;
+use App\Http\Controllers\authadmin\ProfController;
+use App\Http\Controllers\authadmin\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +64,10 @@ Route::get('authadmin/index',[IndexController::class, 'index'])->name('authadmin
 Route::get('authadmin/Publication',[PubController::class, 'index'])->name('authadmin.pub.index');
 Route::get('authadmin/User',[ProfController::class, 'index'])->name('authadmin.profile.index');
 Route::get('authadmin/Categorie',[CategorieController::class, 'index'])->name('authadmin.categorie.index');
+Route::any('authadmin/Categorie/delet/{id}',[CategorieController::class, 'destroy']);
+Route::any('authadmin/Publication/delet/{id}',[PubController::class, 'destroy']);
+Route::any('authadmin/User/delet/{id}',[ProfController::class, 'destroy']);
+
+
 
     

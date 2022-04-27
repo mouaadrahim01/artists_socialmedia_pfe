@@ -17,4 +17,11 @@ class PubController extends Controller
         //
         return view("authadmin.publication.edit");
     }
+
+    public function destroy(Request $request ,$id){
+        $publication = Publication::find($id);
+        $publication->delete();
+        return redirect('authadmin/Publication');
+    }
+    
 }

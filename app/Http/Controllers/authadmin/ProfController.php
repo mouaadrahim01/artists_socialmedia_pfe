@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\authadmin;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use App\Models\User ;
 
@@ -17,4 +18,11 @@ class ProfController extends Controller
         //
         return view("authadmin.profile.edit");
     }
+
+    public function destroy(Request $request ,$id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect('authadmin/User');
+    }
+
 }

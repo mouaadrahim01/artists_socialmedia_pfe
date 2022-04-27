@@ -1,30 +1,33 @@
 @extends('authadmin.layout.layout')
 @section('content')
-this is post
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Liste Users</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Name</th>
                         <th>id</th>
-                        <th>statu</th>
-                        <th>type</th>
+                        <th>Nom</th>
+                        <th>prenom</th>
+                        <th>Email</th>
+                        <th>Pays</th>
                         <th>date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <<th>Name</th>
                         <th>id</th>
-                        <th>statu</th>
-                        <th>type</th>
+                        <th>Nom</th>
+                        <th>prenom</th>
+                        <th>Email</th>
+                        <th>Pays</th>
                         <th>date</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -36,6 +39,7 @@ this is post
                         <td>{{$user->email}}</td>
                         <td>{{$user->pays}}</td>
                         <td>{{$user->created_at}}</td>
+                        <td><td><a href="{{url('authadmin/User/delet',$user->id)}}" class="btn btn-primary">Delete</a></td></td>
                     </tr>
                     @endforeach
                     {{-- <tr>
