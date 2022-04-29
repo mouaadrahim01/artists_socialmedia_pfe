@@ -1,3 +1,5 @@
+@extends('layouts.Home')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +29,7 @@
                             <!-- item-->
                             <a href="{{url('/editpage',$user->id)}}" class="dropdown-item">Edit</a>
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">Delete</a>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">Block</a>
+                            <a href="{{url('authadmin/User/delet',$user->id)}}" class="dropdown-item">Delete</a>
                         </div>
                     </div>
                     <div class="d-flex align-items-start">
@@ -51,6 +51,8 @@
                         <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ms-2">{{ Auth::user()->name}} {{ Auth::user()->prenom}}</span></p>
                     
                         <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ms-2">{{ Auth::user()->email}}</span></p>
+
+                        <p class="text-muted mb-2 font-13"><strong>Art :</strong> <span class="ms-2">{{ Auth::user()->art}}</span></p>
                     
                         <p class="text-muted mb-1 font-13"><strong>Location :</strong> <span class="ms-2">{{ Auth::user()->pays}}</span></p>
                     </div>                                    
@@ -76,16 +78,16 @@
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col-4 border-end border-light">
-                            <h5 class="text-muted mt-1 mb-2 fw-normal">Applied</h5>
-                            <h2 class="mb-0 fw-bold">116</h2>
+                            <h5 class="text-muted mt-1 mb-2 fw-normal">Poste</h5>
+                            <h2 class="mb-0 fw-bold">{{\App\Models\Publication::where("type","=","poste")->where("user_id","=",Auth::user()->id)->count()}}</h2>
                         </div>
                         <div class="col-4 border-end border-light">
-                            <h5 class="text-muted mt-1 mb-2 fw-normal">Reviewed</h5>
-                            <h2 class="mb-0 fw-bold">87</h2>
+                            <h5 class="text-muted mt-1 mb-2 fw-normal">Project</h5>
+                            <h2 class="mb-0 fw-bold">{{\App\Models\Publication::where("type","=","project")->where("user_id","=",Auth::user()->id)->count()}}</h2>
                         </div>
                         <div class="col-4">
                             <h5 class="text-muted mt-1 mb-2 fw-normal">Contacted</h5>
-                            <h2 class="mb-0 fw-bold">98</h2>
+                            <h2 class="mb-0 fw-bold">{{\App\Models\Amis::where("user_id","=",Auth::user()->id)->where("user_id2","!=",Auth::user()->id)->count()}}</h2>
                         </div>
                     </div>
                 </div>
@@ -184,7 +186,7 @@
                     <h4 class="header-title mb-3">Team Members <i class="mdi mdi-account-multiple ms-1"></i></h4>
 
                     <div class="list-group">
-                        @foreach(\App\Models\User::where("id","!=",Auth::user()->id)->get() as $user) 
+                        @foreach(\App\Models\User::where("id","!=",Auth::user()->id)->get() as $user)
                         <a href="{{ route('view.profile',$user->id)}}" class="list-group-item list-group-item-action">
                             <div class="d-flex align-items-center pb-1" id="tooltips-container">
                                 <img src="/uploads/images/{{$user->image}}" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
@@ -468,7 +470,7 @@
     <!-- end row-->
 
 </div>
-
+@endsection
 <style type="text/css">
 body{
     background-color:#ecf2f5;

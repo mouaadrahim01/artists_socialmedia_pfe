@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Providers\RouteServiceProvider;
 use Dotenv\Validator;
 use App\Models\Publication;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -76,5 +77,35 @@ class PublicationController extends Controller
         $publication->delete();
         return redirect('profile');
     }
+
+    public function like_pub(Request $request){
+        if($request->ajax())
+          {
+            $rep=0;
+           $user= $request->id_user;
+           $postpublike= $request->id_publike;
+           $publike=null;
+           $publike=Like::where('user_id',$user)->where('publication_id',$postpublike)->first();
+           if($publike){
+  
+            $del=Like::where('user_id',$user)->where('publication_id',$postpublike)->delete();
+            $rep=2;
+           }
+           else{
+            $likes=new Like();
+            $likes->user_id= $user;
+            $likes->publication_id= $postpublike;
+            $save=$likes->save();
+            if($save) $rep=1;
+           }
+      
+           
+  
+             return response()->json([
+              'reponse'=>$rep, 
+  
+              ]);
+          }
+      }
 
 }

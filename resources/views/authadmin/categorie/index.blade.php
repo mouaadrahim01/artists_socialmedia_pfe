@@ -16,20 +16,23 @@ this is post
               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
+                    
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLongTitle">Categorie</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
+                    <form method="POST" action="{{ route('authadmin.Categorie.store') }}" enctype="multipart/form-data">
+                        @csrf
                     <div class="modal-body">
                       <div class="row mb-3">
-                        <label for="typa" class="col-md-6 col-lg-6 control-label">{{ __('Typa') }}</label>
+                        <label for="type" class="col-md-6 col-lg-6 control-label">{{ __('Type') }}</label>
 
                         <div class="col-md-6">
-                            <input id="typa" type="text" class="form-control @error('typa') is-invalid @enderror" name="typa" value="{{ old('typa') }}" required autocomplete="typa" autofocus placeholder="Type">
+                            <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="type" autofocus placeholder="Type">
 
-                            @error('typa')
+                            @error('type')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -39,8 +42,14 @@ this is post
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      {{-- <button type="button" class="btn btn-primary">Ajoute</button> --}}
+                      <div class="col-md-7 offset-md-6">
+                        <button type="submit" class="btn btn-success">
+                            {{ __('publie') }}
+                        </button>
+                </div>
                     </div>
+                    </form>
                   </div>
                 </div>
               </div>

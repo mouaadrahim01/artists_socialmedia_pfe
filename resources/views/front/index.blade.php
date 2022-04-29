@@ -55,13 +55,13 @@ https://templatemo.com/tm-563-seo-dream
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <h4>SEO Dream <img src="assets/images/logo-icon.png" alt=""></h4>
+              <h4><img src="assets/images/logo-icon.png" alt="">Sho Your Art</h4>
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#features">Features</a></li>
+              <li class="scroll-to-section"><a href="#features">Memebr</a></li>
               <li class="scroll-to-section"><a href="#about">Poste</a></li>
               <li class="scroll-to-section"><a href="#services">Project</a></li>
               <li class="scroll-to-section"><a href="{{route('login')}}">Login</a></li>
@@ -87,24 +87,8 @@ https://templatemo.com/tm-563-seo-dream
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
-                  <div class="col-lg-4 col-sm-4">
-                    <div class="info-stat">
-                      <h6>Agency Status:</h6>
-                      <h4>Ready Work</h4>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-4">
-                    <div class="info-stat">
-                      <h6>Price:</h6>
-                      <h4>$720/Month</h4>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-4">
-                    <div class="info-stat">
-                      <h6>Schedules</h6>
-                      <h4>$450/Meeting</h4>
-                    </div>
-                  </div>
+                  
+                  
                   <div class="col-lg-12">
                     <h2>Show your art</h2>
                   </div>
@@ -126,217 +110,111 @@ https://templatemo.com/tm-563-seo-dream
       </div>
     </div>
   </div>
-
   <div id="features" class="features section">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="features-content">
             <div class="row">
+              @foreach(\App\Models\User::get() as $listeee) 
               <div class="col-lg-3">
                 <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
                   <div class="first-number number">
-                    <h6>01</h6>
+                    <h6>User</h6>
                   </div>
-                  <div class="icon"></div>
-                  <h4>Reach Out</h4>
+                  <a href="{{url('users/view-profile',$listeee->id)}}" class="active">
+                  <img src="/uploads/images/{{$listeee->image}}" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
+                  <h5 class="mb-1">{{$listeee->name}} {{$listeee->prenom}}<i class="mdi mdi-check-decagram text-info ms-1"></i></h5>
+                  </a>
                   <div class="line-dec"></div>
-                  <p>This HTML5 template is based on Bootstrap 5 CSS. You are free to customize anything.</p>
+                  <p>{{$listeee->art}}</p>
                 </div>
               </div>
-              <div class="col-lg-3">
-                <div class="features-item second-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                  <div class="second-number number">
-                    <h6>02</h6>
-                  </div>
-                  <div class="icon"></div>
-                  <h4>Develop a Strategy</h4>
-                  <div class="line-dec"></div>
-                  <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-                  <div class="third-number number">
-                    <h6>03</h6>
-                  </div>
-                  <div class="icon"></div>
-                  <h4>Implementation</h4>
-                  <div class="line-dec"></div>
-                  <p>If this template is useful for your website, please consider to <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little.</p>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="features-item second-feature last-features-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
-                  <div class="fourth-number number">
-                    <h6>04</h6>
-                  </div>
-                  <div class="icon"></div>
-                  <h4>Analyze the result</h4>
-                  <div class="line-dec"></div>
-                  <p>Below circular progress bar animation supports those CSS values 10, 20, 30, till 100.</p>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
         </div>
-        <div class="col-lg-12">
-          <div class="skills-content">
-            <div class="row">
-              <div class="col-lg-3">
-                <div class="skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                  <div class="progress" data-percentage="80">
-                    <span class="progress-left">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <span class="progress-right">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <div class="progress-value">
-                      <div>
-                        80%<br>
-                        <span>HTML/CSS/JS</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                  <div class="progress" data-percentage="60">
-                    <span class="progress-left">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <span class="progress-right">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <div class="progress-value">
-                      <div>
-                        60%<br>
-                        <span>Wordpress</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                  <div class="progress" data-percentage="90">
-                    <span class="progress-left">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <span class="progress-right">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <div class="progress-value">
-                      <div>
-                        90%<br>
-                        <span>Marketing</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="skill-item last-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
-                  <div class="progress" data-percentage="70">
-                    <span class="progress-left">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <span class="progress-right">
-                      <span class="progress-bar"></span>
-                    </span>
-                    <div class="progress-value">
-                      <div>
-                        70%<br>
-                        <span>Photoshop</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
-
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h2>{{ __('Les Postes') }}</h2></div>
   <div id="about" class="about-us section">
     <div class="container">
       <div class="row">
-        {{-- <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-          <div class="section-heading"> --}}
             <div class="col-md-12">
-              {{-- <div class="card"> --}}
-
                 <div class="row mt-5">
                   @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)                     
                   
-                          <div class="row">
-                            <div class="col-lg-4 col-sm-4">
-                              <div class="about-item">
+                  <div class="col-lg-4">
+                    <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
+                      <div class="first-number number">
                                 <ul class="nav">
-                                  <li class="scroll-to-section"><a href="{{route('profile')}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
-                                    <img src="/uploads/images/{{Auth::user()->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
+                                  <br>
+                                  <li class="scroll-to-section"><a href="{{url('users/view-profile',$post->user->id)}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
+                                    <img src="/uploads/images/{{$post->user->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
                                     </a></a></li>
-                                  <li class="scroll-to-section"><a href="{{route('profile')}}" style="width:32px;height:2px;top:4px" >{{$post->user->name}} {{$post->user->prenom}}</a></li>
+                                  <li class="scroll-to-section"><a href="{{url('users/view-profile',$post->user->id)}}" style="width:32px;height:2px;top:4px" >{{$post->user->name}} {{$post->user->prenom}}</a></li>
                                 </ul>
                                       
-                                        
+                                {{$post->statu}} 
+                                <img height="546" width="1000" alt="Peut être une image de 1 personne et texte qui dit ’edbibo’" class="i09qtzwb n7fi1qx3 datstx6m pmk7jnqg j9ispegn kr520xx4 k4urcfbm bixrwtb6" referrerpolicy="origin-when-cross-origin" src="{{asset('files').'/'.$post->file}}">
+                                <br>  <br>  
                               </div>
                             </div>
-                            {{-- <div class="col-lg-1 col-sm-1">
-                              <div class="about-item">
-                                      <a id="navbarDropdown"  style="position:relative;" padding-left:50px;  href="{{ route('view.profile',$post->user_id)}}">{{$post->user_id}} </a> <br> 
-                                    </div>
-                            </div>       --}}
                           </div>
-                                        <img src="{{asset('files').'/'.$post->file}}" style="width:600px;height:550px;top:4px">
+                                        {{-- <img src="{{asset('files').'/'.$post->file}}" style="width:600px;height:550px;top:4px"> --}}
+                                        
                               
                           
                   @endforeach
-              </div>   
-     
-              {{-- </div> --}}
+              </div>
           </div>
-        {{-- </div>
-      </div> --}}
+    </div>
+  </div>
+</div>
     </div>
   </div>
 <br><br>
+<div class="row justify-content-center">
+  <div class="col-md-12">
+      <div class="card">
+          <div class="card-header"><h2>{{ __('Les Project') }}</h2></div>
   <div id="services" class="about-us section">
     <div class="container">
       <div class="row">
-        {{-- <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-          <div class="section-heading"> --}}
             <div class="col-md-12">
-              {{-- <div class="card"> --}}
-
                 <div class="row mt-5">
-                  @foreach (\App\Models\Publication::where('type','=','project')->get() as $post)                     
+                  @foreach (\App\Models\Publication::where('type','=','project')->get() as $post) 
+                  <div class="col-lg-4">
+                    <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
+                      <div class="first-number number">                    
                   
-                          <div class="row">
-                            
-                            {{-- <div class="col-lg-1 col-sm-1">
-                              <div class="about-item">
-                                      <a id="navbarDropdown"  style="position:relative;" padding-left:50px;  href="{{ route('view.profile',$post->user_id)}}">{{$post->user_id}} </a> <br> 
-                                    </div>
-                            </div>       --}}
-                                        <img src="{{asset('files').'/'.$post->file}}" class="w-100">
-                                        {{$post->statu}}
-                          </div>
+                        <ul class="nav">
+                          <br>
+                          <li class="scroll-to-section"><a href="{{url('users/view-profile',$post->user->id)}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >
+                            <img src="/uploads/images/{{$post->user->image}}" style="width:32px;height:32px;position:absolute; top:0.5px;left:5px; border-radius:50% ">
+                            </a></a></li>
+                          <li class="scroll-to-section"><a href="{{url('users/view-profile',$post->user->id)}}" style="width:32px;height:2px;top:4px" >{{$post->user->name}} {{$post->user->prenom}}</a></li>
+                        </ul>
+                              
+                        {{$post->statu}} 
+                        <img height="546" width="1000" alt="Peut être une image de 1 personne et texte qui dit ’edbibo’" class="i09qtzwb n7fi1qx3 datstx6m pmk7jnqg j9ispegn kr520xx4 k4urcfbm bixrwtb6" referrerpolicy="origin-when-cross-origin" src="{{asset('files').'/'.$post->file}}">
+                        <br>  <br>  
+                      </div></div></div>
                   @endforeach
               </div>   
-     
-              {{-- </div> --}}
           </div>
-        {{-- </div>
-      </div> --}}
     </div>
   </div>
-
-  <div id="portfolio" class="our-portfolio section">
+</div>
+</div>
+</div>
+</div>
+  {{-- <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <div class="row">
         <div class="col-lg-5">
@@ -528,13 +406,13 @@ https://templatemo.com/tm-563-seo-dream
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2021 SEO Dream Co., Ltd. All Rights Reserved. 
+          <p>Copyright © 2022 Show Your Art. 
           
           <br>Web Designed by <a rel="nofollow" href="https://templatemo.com" title="free CSS templates">TemplateMo</a></p>
         </div>

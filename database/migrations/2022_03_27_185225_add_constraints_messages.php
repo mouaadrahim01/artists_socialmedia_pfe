@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::table('messages', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('recepteur_id')->references('id')->on('users');
-            $table->foreign('conv_id')->references('id')->on('convercations');
         });
     }
 
@@ -30,7 +29,6 @@ return new class extends Migration
         Schema::table('messages', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['recepteur_id']);
-            $table->dropForeign(['conv_id']);
         });
     }
 };

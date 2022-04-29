@@ -39,7 +39,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->pays}}</td>
                         <td>{{$user->created_at}}</td>
-                        <td><td><a href="{{url('authadmin/User/delet',$user->id)}}" class="btn btn-primary">Delete</a></td></td>
+                        <td><a href="{{url('authadmin/User/delet',$user->id)}}" class="btn btn-primary">Delete</a></td>
                     </tr>
                     @endforeach
                     {{-- <tr>

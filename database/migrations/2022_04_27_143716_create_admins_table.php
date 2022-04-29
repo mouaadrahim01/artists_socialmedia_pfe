@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('recepteur_id');
-            $table->text('contenu');
-            $table->string('type_message',20);
-            $table->boolean('Vu')->default(false);
+            $table->string('name',50);
+            $table->string('prenom',50);
+            $table->string('email',50)->unique();
+            $table->string('password');
+            $table->string('image',299)->default('default.png');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('admins');
     }
 };

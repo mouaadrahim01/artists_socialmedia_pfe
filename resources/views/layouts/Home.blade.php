@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    @yield('css')
+
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -44,6 +46,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashbo^lard -->
+            @auth
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('home')}}">
                     <span>Home</span></a>
@@ -61,13 +64,10 @@
                     <span>Message</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('authadmin.index')}}">
-                    <span>Poste</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('authadmin.index')}}">
+                <a class="nav-link" href="{{route('publications.create')}}">
                     <span>Project</span></a>
             </li>
+            @endauth
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -140,6 +140,7 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
+                        @auth
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -255,17 +256,20 @@
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>
-
+                        @endauth
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                        
                         <li class="nav-item dropdown no-arrow">
+                            @auth
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="/uploads/images/{{Auth::user()->image}}">
                             </a>
+                            @endauth
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -292,7 +296,7 @@
                                     </form>
                             </div>
                         </li>
-
+                        
                     </ul>
 
                 </nav>
@@ -314,7 +318,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2022</span>
                     </div>
                 </div>
             </footer>
@@ -373,6 +377,7 @@
 
     <!-- Page level custom scripts -->
     <script src="{{asset('authadmin/js/demo/datatables-demo.js')}}"></script>
+    @yield('js')
 </body>
 
 </html>
