@@ -198,36 +198,6 @@
                             </div>
                         </a>
                         @endforeach
-                        {{-- <a href="#" class="list-group-item list-group-item-action">
-                            <div class="d-flex align-items-center pb-1" id="tooltips-container">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                                <div class="w-100 ms-2">
-                                    <h5 class="mb-1">Terry Mouser</h5>
-                                    <p class="mb-0 font-13 text-muted">Web Designer</p>
-                                </div>
-                                <i class="mdi mdi-chevron-right h2"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <div class="d-flex align-items-center pb-1" id="tooltips-container">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                                <div class="w-100 ms-2">
-                                    <h5 class="mb-1">Adam Barney</h5>
-                                    <p class="mb-0 font-13 text-muted">PHP Developer</p>
-                                </div>
-                                <i class="mdi mdi-chevron-right h2"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <div class="d-flex align-items-center pb-1" id="tooltips-container">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                                <div class="w-100 ms-2">
-                                    <h5 class="mb-1">Michal Chang</h5>
-                                    <p class="mb-0 font-13 text-muted">UI/UX Designer</p>
-                                </div>
-                                <i class="mdi mdi-chevron-right h2"></i>
-                            </div>
-                        </a> --}}
                     </div>
                 </div>
             </div>

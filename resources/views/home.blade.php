@@ -137,7 +137,7 @@
 </div>
 </div>
 @endsection
-@section('js')
+{{-- @section('js')
 @auth
 <script >
     $(document).ready(function() {
@@ -165,4 +165,4 @@
     });
 </script>
 @endauth
-@endsection
+@endsection --}}

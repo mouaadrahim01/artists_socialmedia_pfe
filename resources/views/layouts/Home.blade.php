@@ -60,7 +60,7 @@
                     <span>Amis</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('authadmin.index')}}">
+                <a class="nav-link" href="{{url('/message/11')}}">
                     <span>Message</span></a>
             </li>
             <li class="nav-item active">
