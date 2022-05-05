@@ -91,7 +91,7 @@
                         <div class="col-md-12">
             
                             <div class="row mt-5">
-                              @foreach (\App\Models\Publication::where("user_id","!=" ,Auth::user()->id)->where('type','=','poste')->get() as $post)                     
+                              @foreach (\App\Models\Publication::where("user_id","!=" ,Auth::user()->id)->where('type','=','poste')->where('droit','!=',0)->get() as $post)                     
                               
                                       <div class="row">
                                         <div class="col-lg-4 col-sm-4">

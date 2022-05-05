@@ -147,7 +147,7 @@ https://templatemo.com/tm-563-seo-dream
       <div class="row">
             <div class="col-md-12">
                 <div class="row mt-5">
-                  @foreach (\App\Models\Publication::where('type','=','poste')->get() as $post)                     
+                  @foreach (\App\Models\Publication::where('type','=','poste')->where('droit','!=',0)->get() as $post)                     
                   
                   <div class="col-lg-4">
                     <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
@@ -188,11 +188,10 @@ https://templatemo.com/tm-563-seo-dream
       <div class="row">
             <div class="col-md-12">
                 <div class="row mt-5">
-                  @foreach (\App\Models\Publication::where('type','=','project')->get() as $post) 
+                  @foreach (\App\Models\Publication::where('type','=','project')->where('droit','!=',0)->get() as $post) 
                   <div class="col-lg-4">
                     <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
-                      <div class="first-number number">                    
-                  
+                      <div class="first-number number">
                         <ul class="nav">
                           <br>
                           <li class="scroll-to-section"><a href="{{url('users/view-profile',$post->user->id)}}" class="active"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="users/view-profile/{id}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position:relative;" padding-left:50px;  >

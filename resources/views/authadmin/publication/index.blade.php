@@ -30,7 +30,7 @@ this is post
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach (\App\Models\Publication::where('type','=','poste')->get() as $publication)
+                    @foreach (\App\Models\Publication::get() as $publication)
                     <tr>
                         <td>{{$publication->user->name}} {{$publication->user->prenom}}</td>
                         <td>{{$publication->id}}</td>

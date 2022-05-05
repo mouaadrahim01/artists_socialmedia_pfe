@@ -48,7 +48,7 @@ class PublicationController extends Controller
     }
 
     public function edit($id){
-        $publication = Publication::find($id);
+        $publication = Publication::where('droit','!=',0)->find($id);
         return view('publications.edit',['publication' => $publication]);
     }
 
