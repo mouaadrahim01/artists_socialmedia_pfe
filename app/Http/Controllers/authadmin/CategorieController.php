@@ -30,4 +30,14 @@ class CategorieController extends Controller
         $art->delete();
         return redirect('authadmin/Categorie');
     }
+
+    public function update(Request $request ,$id){
+        
+        $art = Art::find($id);
+        $art->type=$request->input('type');
+       
+        $art->save();
+        session()->flash('success','Valide');
+        return redirect('/authadmin/Categorie');
+    }
 }

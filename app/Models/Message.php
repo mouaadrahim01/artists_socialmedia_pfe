@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Mzssage extends Model
+class Message extends Model
 {
     use HasFactory , HasApiTokens,Notifiable;
     protected $table = "messages";
@@ -25,7 +25,6 @@ class Mzssage extends Model
     protected $fillable = [
         'user_id',
         'recepteur_id',
-        'conv_id',
         'contenu',
         'type_message',
         'Vu'

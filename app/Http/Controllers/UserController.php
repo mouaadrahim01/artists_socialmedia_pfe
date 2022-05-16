@@ -5,7 +5,6 @@ use Auth;
 use App\Http\Controllers\Redirect;
 use Illuminate\Http\Request;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Validator;
 use App\Models\Amis;
 use Image;
@@ -84,5 +83,13 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function search(Request $request){
+      
+      $name=$request->text_name;
+      $search=User::where('name','like','%'.$name.'%')->orWhere('prenom','like','%'.$name.'%')->get();
+      return view('profiles.search',compact('search'));
+    }
+
 } 
 

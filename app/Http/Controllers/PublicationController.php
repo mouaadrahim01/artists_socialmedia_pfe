@@ -25,6 +25,11 @@ class PublicationController extends Controller
         return view('publications.create');
     }
 
+    public function show($id){
+      $publications = Publication::where('type','=','project')->where('droit','!=',0)->where('user_id',$id)->get();
+      return view('publications.index',compact('publications'));
+  }
+
     public function store(Request $request){
        
         $pub = new Publication();

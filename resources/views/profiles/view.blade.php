@@ -17,18 +17,27 @@
                             <i class="mdi mdi-dots-vertical"></i>
                         </a>
                     </div>
+                    
                     <div class="d-flex align-items-start">
                         <img src="{{asset('uploads/images').'/'.$user->image}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                         <div class="w-100 ms-3">
                             <h4 class="my-0">{{$user->name}} </h4>
                             <p class="text-muted">@webdesigner</p>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
                             @auth
                             <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
-                            <input type="button"  class="<?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
+                            <input type="button" style="column-width: 20pc" class="<?= ($following)? 'btn btn-sm btn-secondary' : 'btn btn-sm btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
                             @endauth
+                                </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                            <form action="{{route('publications.index',$user->id)}}" class="comment-area-box mb-3">
+                                <button type="submit"  class="btn btn-sm btn-dark btn-lg" style="column-width: 20pc">Project</button>
+                            </form>
+                            </div></div>
                         </div>
                     </div>
-
+                </ul>
                     <div class="mt-3">
                         <h4 class="font-13 text-uppercase">About Me :</h4>
                         <p class="text-muted font-13 mb-3">
@@ -65,7 +74,7 @@
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col-4 border-end border-light">
-                            <h5 class="text-muted mt-1 mb-2 fw-normal">Poste</h5>
+                            <h5 class="text-muted mt-1 mb-2 fw-normal">Posts</h5>
                             <h2 class="mb-0 fw-bold">{{\App\Models\Publication::where("type","=","poste")->where("user_id","=",$user->id)->count()}}</h2>
                         </div>
                         <div class="col-4 border-end border-light">
@@ -73,7 +82,7 @@
                             <h2 class="mb-0 fw-bold">{{\App\Models\Publication::where("type","=","project")->where("user_id","=",$user->id)->count()}}</h2>
                         </div>
                         <div class="col-4">
-                            <h5 class="text-muted mt-1 mb-2 fw-normal">Contacted</h5>
+                            <h5 class="text-muted mt-1 mb-2 fw-normal">friends</h5>
                             <h2 class="mb-0 fw-bold">{{\App\Models\Amis::where("user_id","=",$user->id)->where("user_id2","!=",$user->id)->count()}}</h2>
                         </div>
                     </div>
@@ -84,7 +93,7 @@
                 <div class="card-body">
                     
 
-                    <h4 class="header-title mb-3">Team Members <i class="mdi mdi-account-multiple ms-1"></i></h4>
+                    <h4 class="header-title mb-3">Other friends <i class="mdi mdi-account-multiple ms-1"></i></h4>
 
                     <div class="list-group">
                         @foreach(\App\Models\User::get() as $listeee) 
@@ -137,7 +146,7 @@
                         <div class="d-flex align-items-start">
                             <img class="me-2 avatar-sm rounded-circle" src="{{asset('uploads/images').'/'.$publication->user->image}}" alt="Generic placeholder image">
                             <div class="w-100">
-                                <h5 class="">{{$publication->user->name}} {{$publication->user->prenom}}<small class="text-muted"> 1 hour ago</small></h5>
+                                <h5 class="">{{$publication->user->name}} {{$publication->user->prenom}}<small class="text-muted"> {{$publication->created_at}}</small></h5>
                                 <div class="">
                                     <img src="{{asset('files').'/'.$publication->file}}"  width="300" class="img-fluid border-0">
                                            <br> {{$publication->statu}}

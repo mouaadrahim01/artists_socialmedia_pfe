@@ -94,17 +94,17 @@
             </div>
             
             <div class="card">
-                <div class="card-header">{{ __('S’inscrire') }}</div>
+                <div class="card-header">{{ __('Sign Up') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-6 col-lg-6 control-label">{{ __('Nom') }}</label>
+                            <label for="name" class="col-md-6 col-lg-6 control-label">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nom">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Last Name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -115,10 +115,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="prenom" class="col-md-6 col-lg-6 control-label">{{ __('Prenom') }}</label>
+                            <label for="prenom" class="col-md-6 col-lg-6 control-label">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus placeholder="Prenom">
+                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus placeholder="First Name">
 
                                 @error('prenom')
                                     <span class="invalid-feedback" role="alert">
@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="date" class="col-md-6 col-lg-6 control-label">{{ __('Date Naissance') }}</label>
+                            <label for="date" class="col-md-6 col-lg-6 control-label">{{ __('Date of birth') }}</label>
                             <div class="col-md-6">
                                 <input type="date" name="date" id="date" class="form-control @error('date') is-invalid @enderror" style="width: 100%; display: inline;" name="date" value="{{ old('date') }}" required autocomplete="date">
                                 @error('date')
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="art" class="col-md-6 col-lg-6 control-label">{{ __('Selectionner votre art') }}</label>
+                            <label for="art" class="col-md-6 col-lg-6 control-label">{{ __('Select yout art') }}</label>
 
                             <div class="col-md-6">
                                 <select name=art class="form-select" aria-label="Default select example">
@@ -171,24 +171,24 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="art" class="col-md-6 col-lg-6 control-label">{{ __('Sexe') }}</label>
+                            <label for="art" class="col-md-6 col-lg-6 control-label">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
                                 <input class="form-check-input" type="radio" id="inlineCheckbox1" name=gender value="Homme" {{old("gender") == "Homme" ? 'checked': ''}}>
-                                <label class="form-check-label" for="inlineCheckbox1">Homme</label>
+                                <label class="form-check-label" for="inlineCheckbox1">Female</label>
                               
                                 <input class="form-check-input" type="radio" id="inlineCheckbox2" name=gender value="Femme" {{old("gender") == "Femme" ? 'checked': ''}}>
-                                <label class="form-check-label" for="inlineCheckbox2">Femme</label>
+                                <label class="form-check-label" for="inlineCheckbox2">Male</label>
                             </div>
                                 
                              
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-6 col-lg-6 control-label">{{ __('Mot de passe') }}</label>
+                            <label for="password" class="col-md-6 col-lg-6 control-label">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Mot de passe">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -199,17 +199,17 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-6 col-lg-6 control-label">{{ __('Confirm Mot de passe') }}</label>
+                            <label for="password-confirm" class="col-md-6 col-lg-6 control-label">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Mot de passe">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                             </div>
                         </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('S’inscrire') }}
+                                    {{ __('Sign Up') }}
                                 </button>
                             </div>
                         </div>

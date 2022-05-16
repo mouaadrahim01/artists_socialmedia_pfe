@@ -17,14 +17,14 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">login</h2>
+					<h2 class="heading-section">Connexion</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Have an account?</h3>
-		      	<form method="POST" action="{{ route('login') }}">
+		      	<h3 class="mb-4 text-center">Avoir un compte?</h3>
+		      	<form method="POST" action="{{ route('authadmin.login') }}">
 					@csrf
 		      		<div class="form-group">
 						<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Adresse e-mail">
@@ -36,7 +36,7 @@
 						@enderror
 		      		</div>
 	            <div class="form-group">
-					<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+					<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Mot de passe">
 
 					@error('password')
 						<span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3">log in</button>
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Se connecter</button>
 					
 					{{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -54,14 +54,14 @@
                                     </a>
                                 @endif --}}
 	            </div>
-	            <div class="form-group d-md-flex">
+	            {{-- <div class="form-group d-md-flex">
 	            	<div class="w-50">
-                                <a href="{{ route('register') }}" style="color: #fff">{{ __('Create New Account') }}</a>
+                                <a href="{{ route('register') }}" style="color: #fff">{{ __('Créer nouveau compte') }}</a>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="{{ route('password.request') }}" style="color: #fff">Forgotten password?</a>
+									<a href="{{ route('password.request') }}" style="color: #fff">Mote de passe oublié ?</a>
 								</div>
-	            </div>
+	            </div> --}}
 	          </form>
 		      </div>
 				</div>

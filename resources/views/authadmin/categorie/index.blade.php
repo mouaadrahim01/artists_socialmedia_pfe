@@ -1,6 +1,5 @@
 @extends('authadmin.layout.layout')
 @section('content')
-this is post
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -45,7 +44,7 @@ this is post
                       {{-- <button type="button" class="btn btn-primary">Ajoute</button> --}}
                       <div class="col-md-7 offset-md-6">
                         <button type="submit" class="btn btn-success">
-                            {{ __('publie') }}
+                            {{ __('Ajout') }}
                         </button>
                 </div>
                     </div>
@@ -74,7 +73,52 @@ this is post
                     <tr>
                         <td>{{$art->id}}</td>
                         <td>{{$art->type}}</td>
-                        <td><a href="{{url('authadmin/Categorie/delet',$art->id)}}" class="btn btn-primary">Delete</a></td>
+                        <td><a href="{{url('authadmin/Categorie/delet',$art->id)}}" class="btn btn-primary">Delete</a>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                                Update
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Categorie</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <form method="POST" action="{{url('authadmin/Categorie/idet',$art->id)}}" enctype="multipart/form-data">
+                                        @csrf
+                                    <div class="modal-body">
+                                      <div class="row mb-3">
+                                        <label for="type" class="col-md-6 col-lg-6 control-label">{{ __('Type') }}</label>
+                
+                                        <div class="col-md-6">
+                                            <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{$art->type }}" required autocomplete="type" autofocus placeholder="Type">
+                
+                                            @error('type')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      {{-- <button type="button" class="btn btn-primary">Ajoute</button> --}}
+                                      <div class="col-md-7 offset-md-6">
+                                        <button type="submit" class="btn btn-success">
+                                            {{ __('Update') }}
+                                        </button>
+                                </div>
+                                    </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div></td>
                         
                     </tr>
                     @endforeach

@@ -32,8 +32,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container">
-               <a class="navbar-brand" href="{{ url('/home') }}">
-                {{ config('app.nam', 'home') }}
+                <a class="sidebar-brand d-flex align-items-center " href="{{route('home')}}">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        {{-- <i class="fas fa-laugh-wink"></i> --}}
+                        <img class="img-profile rounded-circle"
+                                        src="/logo/logo1.jpg" width="50">
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Show Your Art</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,15 +60,15 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>{{ __("Login") }}</a>
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                            
                         @else
                         <li class="dropdown">

@@ -15,12 +15,12 @@
             </div> --}}
            <h2>Friends</h2>
         <div class="list-group">
-            @foreach(\App\Models\Amis::where("user_id2","!=",Auth::user()->id)->get() as $arts) 
-            <a href="{{ route('view.profile',$arts->user_id2)}}" class="list-group-item list-group-item-action">
+            @foreach($search as $arts) 
+            <a href="{{ route('view.profile',$arts->id)}}" class="list-group-item list-group-item-action">
                 <div class="d-flex align-items-center pb-1" id="tooltips-container">
-                    <img src="/uploads/images/{{$arts->user->image}}" class="rounded-circle avatar-lg img-thumbnail" width="100">
+                    <img src="/uploads/images/{{$arts->image}}" class="rounded-circle avatar-lg img-thumbnail" width="100">
                     <div class="w-100 ms-2">
-                        <h5 class="mb-1">{{$arts->user->name}} {{$arts->user->prenom}}<i class="mdi mdi-check-decagram text-info ms-1"></i></h5>
+                        <h5 class="mb-1">{{$arts->name}} {{$arts->prenom}}<i class="mdi mdi-check-decagram text-info ms-1"></i></h5>
                         <p class="mb-0 font-13 text-muted">{{$arts->art}}</p>
                     </div>
                     <i class="mdi mdi-chevron-right h2"></i>

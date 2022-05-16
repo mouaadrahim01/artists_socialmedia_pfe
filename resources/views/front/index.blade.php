@@ -55,17 +55,16 @@ https://templatemo.com/tm-563-seo-dream
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <h4><img src="assets/images/logo-icon.png" alt="">Sho Your Art</h4>
+              <h4><img src="assets/images/logo-icon.png" alt="">Show Your Art</h4>
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#features">Memebr</a></li>
-              <li class="scroll-to-section"><a href="#about">Poste</a></li>
+              <li class="scroll-to-section"><a href="#features">Member</a></li>
+              <li class="scroll-to-section"><a href="#about">Posts</a></li>
               <li class="scroll-to-section"><a href="#services">Project</a></li>
               <li class="scroll-to-section"><a href="{{route('login')}}">Login</a></li>
-              <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
               <li class="scroll-to-section"><div class="main-blue-button"><a href="{{route('register')}}">Register</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
@@ -141,7 +140,7 @@ https://templatemo.com/tm-563-seo-dream
   <div class="row justify-content-center">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header"><h2>{{ __('Les Postes') }}</h2></div>
+            <div class="card-header"><h2>{{ __('Posts') }}</h2></div>
   <div id="about" class="about-us section">
     <div class="container">
       <div class="row">
@@ -182,7 +181,7 @@ https://templatemo.com/tm-563-seo-dream
 <div class="row justify-content-center">
   <div class="col-md-12">
       <div class="card">
-          <div class="card-header"><h2>{{ __('Les Project') }}</h2></div>
+          <div class="card-header"><h2>{{ __('Project') }}</h2></div>
   <div id="services" class="about-us section">
     <div class="container">
       <div class="row">

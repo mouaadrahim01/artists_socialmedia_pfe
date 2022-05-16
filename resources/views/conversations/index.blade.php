@@ -1,18 +1,10 @@
 @extends('layouts.Home')
+@section('css')
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	@endsection
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
-    <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>chat app - Bootdey.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <div class="container">
@@ -62,34 +54,50 @@
                 </div>
                 <div class="chat-history">
                     <ul class="m-b-0 row_chat">
-                        <li class="clearfix">
+                        <?php
+                        $sel1="SELECT * FROM messages where recepteur_id=".Auth::user()->id." and user_id=".$user->id."  union SELECT * FROM messages where recepteur_id=".$user->id." and user_id=".Auth::user()->id."";
+                        //$sel="select * from ".$sel1."  ";
+                        $msgs=\DB::select(DB::raw($sel1));
+                        
+                        //whereIn('user_id',Auth::user()->id)->whereIN('recepteur_id',$user->id)->Orwhere('recepteur_id',Auth::user()->id)->orderBy('created_at')->get(); ?>
+                        @foreach($msgs as $msg)
+                        @if($msg->recepteur_id==Auth::user()->id)
+                       <li class="clearfix">
                             <div class="message-data text-right">
-                                <span class="message-data-time">10:10 AM, Today</span>
-                                <img src="/uploads/images/{{$user->image}}" alt="avatar">
+                                <span class="message-data-time">{{$msg->created_at}}</span>
+                                <img src="/uploads/images/{{@$user->image}}" alt="avatar">
                             </div>
-                            <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
+                            <div class="message other-message float-right"> {{$msg->contenu}} </div>
                         </li>
-                        <li class="clearfix">
+                        @else
+                         <li class="clearfix">
                             <div class="message-data">
-                                <span class="message-data-time">10:12 AM, Today</span>
+                                <span class="message-data-time">{{$msg->created_at}}</span>
                             </div>
-                            <div class="message my-message">Are we meeting today?</div>                                    
-                        </li>                               
-                        <li class="clearfix">
-                            <div class="message-data">
-                                <span class="message-data-time">10:15 AM, Today</span>
-                            </div>
-                            <div class="message my-message">Project has been already finished and I have results to show you.</div>
-                        </li>
+                            <div class="message my-message">{{$msg->contenu}}</div>                                    
+                        </li> 
+                        @endif
+                        
+                                                      
+                        @endforeach
                     </ul>
                 </div>
                 <div class="chat-message clearfix">
+                <form action="{{route('message',@$user->id)}}" method="post">
+                    @csrf
                     <div class="input-group mb-0">
+                        
+
+                        
                         <div class="input-group-prepend">
-                            <span class="input-group-text send_chat"><i class="fa fa-send"></i></span>
+                        
+                            <button type="submit"><i class="fa fa-send"></i></span></button>
+                            <input type="hidden" name="recepteur" value="{{$user->id}}">
                         </div>
-                        <input type="text" class="form-control message_chat" placeholder="Enter text here...">                                    
+                        <input type="text" name="message" class="form-control message_chat" placeholder="Enter text here...">                                    
+                    
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -356,45 +364,11 @@ body{
 }
 </style>
 
-<script type="text/javascript">
 
-</script>
+@endsection
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 
-<script >
-    $(document).ready(function() {
-        // alert('ddd');
-        $('.send_chat').on('click',function(){
-        //alert('ojo');
-        $('.row_chat').append(`
-        <li>
-    jhoupmrpy
-</li>
-        `)
-        var message = $('.message_chat').val();
-        alert(message)
-        $.ajax({
-            type : 'POST',
-            url: "<?= route('message.send'); ?>",
-            data:{_token: '<?= csrf_token(); ?>','user_id':<?=Auth::user()->id?>,'message':message },
-            success:function(data){
-                // alert(data.reponse);
-                if(data.reponse==1){
-                    
-                    $('.btn-follow').removeClass("btn-primary");
-                    $('.btn-follow').addClass("btn-secondary");
-                    $('.btn-follow').val("INFOLLOW");
-                   
-                  }else{
-                    $('.btn-follow').removeClass("btn-secondary");
-                    $('.btn-follow').addClass("btn-primary");
-                    $('.btn-follow').val("FOLLOW");
-                  }
-            }
-            });
-    });
-    });
-</script>
 
-</body>
-</html>
 @endsection

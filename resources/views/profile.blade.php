@@ -36,13 +36,13 @@
                         <img src="/uploads/images/{{Auth::user()->image}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                         <div class="w-100 ms-3">
                             <h4 class="my-0">{{ Auth::user()->name}} </h4>
-                            <p class="text-muted">@webdesigner</p>
-                            {{-- <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
-                        <input type="button"  class=" btn-soft-primary btn-xs waves-effect mb-2 waves-light <?= ($following)? 'btn btn-secondary' : 'btn btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
-                         --}}
+                            
                         </div>
                     </div>
-
+                    <br>
+                    <form action="{{route('publications.index')}}" class="comment-area-box mb-3">
+                        <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Project</button>
+                    </form>
                     <div class="mt-3">
                         <h4 class="font-13 text-uppercase">About Me :</h4>
                         <p class="text-muted font-13 mb-3">
@@ -78,7 +78,7 @@
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col-4 border-end border-light">
-                            <h5 class="text-muted mt-1 mb-2 fw-normal">Poste</h5>
+                            <h5 class="text-muted mt-1 mb-2 fw-normal">Posts</h5>
                             <h2 class="mb-0 fw-bold">{{\App\Models\Publication::where("type","=","poste")->where("user_id","=",Auth::user()->id)->count()}}</h2>
                         </div>
                         <div class="col-4 border-end border-light">
@@ -86,7 +86,7 @@
                             <h2 class="mb-0 fw-bold">{{\App\Models\Publication::where("type","=","project")->where("user_id","=",Auth::user()->id)->count()}}</h2>
                         </div>
                         <div class="col-4">
-                            <h5 class="text-muted mt-1 mb-2 fw-normal">Contacted</h5>
+                            <h5 class="text-muted mt-1 mb-2 fw-normal">friends </h5>
                             <h2 class="mb-0 fw-bold">{{\App\Models\Amis::where("user_id","=",Auth::user()->id)->where("user_id2","!=",Auth::user()->id)->count()}}</h2>
                         </div>
                     </div>
@@ -95,95 +95,8 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title mb-3">Inbox</h4>
 
-                    <div class="inbox-widget" data-simplebar="init" style="max-height: 350px;"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
-                        <div class="d-flex align-items-center pb-1" id="tooltips-container">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Tomaslau</h5>
-                                <p class="mb-0 font-13">I've finished it! See you so...</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center py-1" id="tooltips-container1">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Stillnotdavid</h5>
-                                <p class="mb-0 font-13">This theme is awesome!</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container1" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center py-1" id="tooltips-container2">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Shahedk</h5>
-                                <p class="mb-0 font-13">Hey! there I'm available...</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container2" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center py-1" id="tooltips-container3">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Kurafire</h5>
-                                <p class="mb-0 font-13">Nice to meet you</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container3" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center py-1" id="tooltips-container4">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Adhamdannaway</h5>
-                                <p class="mb-0 font-13">This theme is awesome!</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container4" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center py-1" id="tooltips-container5">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Tomaslau</h5>
-                                <p class="mb-0 font-13">I've finished it! See you so...</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container5" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center py-1" id="tooltips-container6">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Shahedk</h5>
-                                <p class="mb-0 font-13">Hey! there I'm available...</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container6" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                        <div class="d-flex align-items-center pt-1" id="tooltips-container7">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent" alt="">
-                            <div class="w-100 ms-3">
-                                <h5 class="mb-1">Stillnotdavid</h5>
-                                <p class="mb-0 font-13">This theme is awesome!</p>
-                            </div>
-                            <a href="javascript:(0);" class="btn btn-sm btn-soft-info font-13" data-bs-container="#tooltips-container7" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Reply"> <i class="mdi mdi-reply"></i> </a>
-                        </div>
-                    </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 532px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 230px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div> <!-- end inbox-widget -->
-                </div>
-            </div> <!-- end card-->
-            <div class="card">
-                <div class="card-body">
-                    <div class="dropdown float-end">
-                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="mdi mdi-dots-vertical"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                        </div>
-                    </div>
-
-                    <h4 class="header-title mb-3">Team Members <i class="mdi mdi-account-multiple ms-1"></i></h4>
+                    <h4 class="header-title mb-3">Other friends <i class="mdi mdi-account-multiple ms-1"></i></h4>
 
                     <div class="list-group">
                         @foreach(\App\Models\User::where("id","!=",Auth::user()->id)->get() as $user)
@@ -314,7 +227,7 @@
                         </span>
                         <div class="comment-area-btn">
                             <div class="float-end">
-                                <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Post</button>
+                                <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Posts</button>
                             </div>
                             <div>
                                 <a href="#" class="btn btn-sm btn-light text-black-50"><i class="far fa-user"></i></a>
@@ -343,7 +256,7 @@
                         <div class="d-flex align-items-start">
                             <img class="me-2 avatar-sm rounded-circle" src="{{asset('uploads/images').'/'.Auth::user()->image}}" alt="Generic placeholder image">
                             <div class="w-100">
-                                <h5 class="">{{Auth::user()->name}} {{Auth::user()->prenom}}<small class="text-muted"> 1 hour ago</small></h5>
+                                <h5 class="">{{Auth::user()->name}} {{Auth::user()->prenom}}<small class="text-muted"> {{$publication->created_at}}</small></h5>
                                 <div class="">
                                     <img src="{{asset('files').'/'.$publication->file}}"  width="300" class="img-fluid border-0">
                                            <br> {{$publication->statu}}
