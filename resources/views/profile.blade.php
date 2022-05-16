@@ -40,9 +40,16 @@
                         </div>
                     </div>
                     <br>
-                    <form action="{{route('publications.index')}}" class="comment-area-box mb-3">
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <form action="{{route('message',Auth::user()->id)}}" class="comment-area-box mb-3">
+                            <button type="submit"  class="btn btn-sm btn-dark btn-lg" style="column-width: 20pc">Message</button>
+                        </form>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <form action="{{route('publications.index',Auth::user()->id)}}" class="comment-area-box mb-3">
                         <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Project</button>
                     </form>
+                    </div>
                     <div class="mt-3">
                         <h4 class="font-13 text-uppercase">About Me :</h4>
                         <p class="text-muted font-13 mb-3">
