@@ -22,19 +22,25 @@
                         <img src="{{asset('uploads/images').'/'.$user->image}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                         <div class="w-100 ms-3">
                             <h4 class="my-0">{{$user->name}} </h4>
-                            <p class="text-muted">@webdesigner</p>
+                            <p class="text-muted"></p>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                            @auth
-                            <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
-                            <input type="button" style="column-width: 20pc" class="<?= ($following)? 'btn btn-sm btn-secondary' : 'btn btn-sm btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
-                            @endauth
+                                    @auth
+                                    <?php $following= App\Models\Amis::where('user_id',Auth::user()->id)->where('user_id2',Auth::user()->id)->first(); ?>
+                                    <input type="button" style="column-width: 20pc" class="<?= ($following)? 'btn btn-sm btn-secondary' : 'btn btn-sm btn-primary' ; ?> btn-follow" value="<?= ($following)? 'INFOLLOW' : 'FOLLOW' ; ?>">
+                                    @endauth
                                 </div>
-                            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                            <form action="{{route('publications.index',$user->id)}}" class="comment-area-box mb-3">
-                                <button type="submit"  class="btn btn-sm btn-dark btn-lg" style="column-width: 20pc">Project</button>
-                            </form>
-                            </div></div>
+                                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                    <form action="{{route('message',@$user->id)}}" class="comment-area-box mb-3">
+                                        <button type="submit"  class="btn btn-sm btn-dark btn-lg" style="column-width: 20pc">Message</button>
+                                    </form>
+                                </div>
+                                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                    <form action="{{route('publications.index',$user->id)}}" class="comment-area-box mb-3">
+                                        <button type="submit"  class="btn btn-sm btn-dark btn-lg" style="column-width: 20pc">Project</button>
+                                    </form>
+                                </div>
+                        </div>
                         </div>
                     </div>
                 </ul>
