@@ -76,8 +76,7 @@ Route::group(['namespace' => 'AuthAdmin', 'prefix'=>'authadmin', 'middleware'=>'
     Route::any('User/delet/{id}',[ProfController::class, 'destroy']);
     
 });
-   
-
+Route::any('authadmin/logout',[LoginController::class, 'logout'])->name('authadmin.logout');
 
 
 

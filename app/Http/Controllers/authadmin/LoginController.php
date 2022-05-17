@@ -39,4 +39,10 @@ class LoginController extends Controller
         }
         return view('authadmin.login', compact('error_login'));
     }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('authadmin');
+		 return redirect()->route('authadmin.login'); 
+    }
 }

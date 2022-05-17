@@ -75,27 +75,6 @@ https://templatemo.com/tm-563-seo-dream
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <div class="row mt-5">
-            <form action="{{route('view.search')}}" method="POST"
-            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            @csrf
-              <div class="input-group">
-                  <input type="text" name='text_name' class="form-control bg-light border-0 small" placeholder="Search for..."
-                      aria-label="Search" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                      <button class="btn btn-primary" type="submit">
-                          <h3><i class="fas fa-search fa-sm"></i></h3>
-                      </button>
-                  </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
   </header>
   <!-- ***** Header Area End ***** -->
 
@@ -121,6 +100,27 @@ https://templatemo.com/tm-563-seo-dream
               </div>
             </div>
             <div class="col-lg-6">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row mt-5">
+                      <form action="{{route('view.search')}}" method="POST"
+                      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                      @csrf
+                        <div class="input-group">
+                            <input type="text" name='text_name' class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <h3><i class="fas fa-search fa-sm"></i></h3>
+                                </button>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="assets/images/banner-right-image.png" alt="">
               </div>

@@ -44,7 +44,7 @@
                       {{-- <button type="button" class="btn btn-primary">Ajoute</button> --}}
                       <div class="col-md-7 offset-md-6">
                         <button type="submit" class="btn btn-success">
-                            {{ __('Ajout') }}
+                            {{ __('Insert') }}
                         </button>
                 </div>
                     </div>
