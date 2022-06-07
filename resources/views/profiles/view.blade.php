@@ -21,7 +21,7 @@
                     <div class="d-flex align-items-start">
                         <img src="{{asset('uploads/images').'/'.$user->image}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                         <div class="w-100 ms-3">
-                            <h4 class="my-0">{{$user->name}} </h4>
+                            <h4 class="my-0">{{$user->name}} {{$user->prenom}} </h4>
                             <p class="text-muted"></p>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2" role="group" aria-label="First group">

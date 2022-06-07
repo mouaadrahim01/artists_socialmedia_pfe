@@ -35,7 +35,7 @@
                     <div class="d-flex align-items-start">
                         <img src="/uploads/images/{{Auth::user()->image}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                         <div class="w-100 ms-3">
-                            <h4 class="my-0">{{ Auth::user()->name}} </h4>
+                            <h4 class="my-0">{{ Auth::user()->name}} {{ Auth::user()->prenom}}</h4> </h4>
                             
                         </div>
                     </div>

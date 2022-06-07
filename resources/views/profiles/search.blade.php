@@ -13,7 +13,7 @@
 
                 @endforeach 
             </div> --}}
-           <h2>Friends</h2>
+           <h2>search</h2>
         <div class="list-group">
             @foreach($search as $arts) 
             <a href="{{ route('view.profile',$arts->id)}}" class="list-group-item list-group-item-action">

@@ -107,6 +107,7 @@
 
 <style type="text/css">
 body{
+    overflow-y: auto;
     background-color: #f4f7f6;
     margin-top:20px;
 }
@@ -135,6 +136,7 @@ body{
 }
 
 .people-list {
+    overflow-y: auto;
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
